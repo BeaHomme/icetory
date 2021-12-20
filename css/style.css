@@ -1,1 +1,91 @@
-/* No CSS */
+@font-face {
+  font-family: 'ProbaPro-Regular';
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/ProbaPro-Regular.woff2") format("woff2"), url("/fonts/ProbaPro-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'ProbaPro-Medium';
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/ProbaPro-Medium.woff2") format("woff2"), url("/fonts/ProbaPro-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'ProbaPro-Bold';
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/ProbaPro-Bold.woff2") format("woff2"), url("/fonts/ProbaPro-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'FuturaPT-Bold';
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/FuturaPT-Bold.woff2") format("woff2"), url("/fonts/FuturaPT-Bold.woff") format("woff");
+}
+
+body {
+  font-family: 'ProbaPro-Regular', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.page--disabled {
+  overflow-y: hidden;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #414042;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1230px;
+  padding: 0 25px;
+  margin: 0 auto;
+}
+
+.container-fluid {
+  padding-left: 0.09%;
+}
