@@ -32,15 +32,17 @@ body {
   font-weight: 400;
 }
 
+.title {
+  font-family: 'FuturaPT-Bold', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
 *,
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-html {
-  overflow-x: hidden;
 }
 
 .page--disabled {
@@ -88,4 +90,10 @@ p {
 
 .container-fluid {
   padding-left: 0.09%;
+}
+
+.title {
+  font-size: 48px;
+  line-height: 1;
+  color: #414042;
 }
