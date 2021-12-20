@@ -89,11 +89,17 @@ p {
 }
 
 .container-fluid {
-  padding-left: 0.09%;
+  padding: 0;
+  padding-left: 25px;
+  margin-right: calc(50% - 50vw);
 }
 
 .title {
   font-size: 48px;
   line-height: 1;
   color: #414042;
+}
+
+.feedback__img {
+  width: 80px;
 }

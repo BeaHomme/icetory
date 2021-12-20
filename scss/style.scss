@@ -47,11 +47,17 @@ p {
   margin: 0 auto;
 }
 .container-fluid {
-  padding-left: 0.09%;
+  padding: 0;
+  padding-left: 25px;
+  margin-right: calc(50% - 50vw);
 }
 .title {
   @extend %futurapt-bold;
   font-size: 48px;
   line-height: 1;
   color: $black;
+}
+
+.feedback__img {
+  width: 80px;
 }
