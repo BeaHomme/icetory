@@ -32,6 +32,12 @@ body {
   font-weight: 400;
 }
 
+.tabs__name {
+  font-family: 'ProbaPro-Bold', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
 .title {
   font-family: 'FuturaPT-Bold', sans-serif;
   font-style: normal;
@@ -98,6 +104,129 @@ p {
   font-size: 48px;
   line-height: 1;
   color: #414042;
+}
+
+.menu {
+  margin-top: 120px;
+}
+
+.tabs {
+  margin-top: 60px;
+}
+
+.tabs__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: -20px;
+}
+
+.tabs__nav-item {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 17px 20px;
+  font-size: 26px;
+  line-height: 1;
+  border: 2px solid #008f99;
+  border-radius: 24px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.tabs__nav-item:hover {
+  background-color: #008f99;
+  color: #fff;
+}
+
+.tabs__content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px 20px;
+  margin-top: 60px;
+}
+
+.tabs__item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 10px;
+  max-width: 280px;
+  min-height: 465px;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0.2)));
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+  border: 1px solid #efefef;
+  border-radius: 20px;
+}
+
+.tabs__tag {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  padding: 5px 8px;
+  font-size: 22px;
+  line-height: 1;
+  color: #fff;
+  background: #ff8181;
+  border-radius: 6px;
+}
+
+.tabs__img {
+  display: block;
+  border-radius: 16px;
+}
+
+.tabs__name {
+  margin-top: 20px;
+  max-width: 250px;
+  font-size: 22px;
+  line-height: 1;
+  word-wrap: break-word;
+}
+
+.tabs__descr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #9e9a9a;
+}
+
+.tabs__price {
+  margin-top: auto;
+  padding: 18px;
+  width: 100%;
+  border-radius: 16px;
+  background-color: #6cbab8;
+  color: #fff;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.tabs__price:hover {
+  background-color: #008f99;
 }
 
 .feedback__img {
