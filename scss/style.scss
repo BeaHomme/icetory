@@ -156,6 +156,10 @@ p {
 .feedback__container {
   overflow-x: hidden;
 }
+.feedback__wrapper {
+  -webkit-clip-path: inset(-100vw -20vw -100vw 0);
+  clip-path: inset(-100vw -20vw -100vw 0);
+}
 .feedback__items {
   margin-top: 60px;
 }
