@@ -55,7 +55,8 @@ p {
   color: $black;
 }
 // Menu start
-.menu {
+.menu,
+.feedback {
   margin-top: 120px;
 }
 .tabs {
@@ -152,7 +153,68 @@ p {
 // Menu end
 
 // Feedback start
-// Feedback end
-.feedback__img {
-  width: 80px;
+.feedback {
+  overflow-x: hidden;
 }
+.feedback__container {
+  overflow-x: visible;
+}
+.feedback__items {
+  margin-top: 60px;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+}
+.feedback__item {
+  flex: 0 0 380px;
+  padding: 30px;
+  width: 380px;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.2)
+  );
+  border: 1px solid #def1ee;
+  border-radius: 20px;
+}
+.feedback__item + .feedback__item {
+  margin-left: 20px;
+}
+.feedback__top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.feedback__img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.feedback__author {
+  margin-left: 20px;
+}
+.feedback__author-name {
+  @extend %probapro-bold;
+  font-size: 24px;
+  line-height: 1;
+}
+.feedback__author-descr {
+  margin-top: 10px;
+  font-size: 20px;
+  color: $dark-gray;
+}
+.feedback__text {
+  margin-top: 40px;
+  font-size: 18px;
+}
+.feedback__text-title {
+  display: block;
+  @extend %probapro-medium;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+// Feedback end
