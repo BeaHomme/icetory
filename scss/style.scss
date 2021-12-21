@@ -214,3 +214,20 @@ p {
   margin-bottom: 20px;
 }
 // Feedback end
+
+// Instagram start
+.instagram {
+  margin-top: 120px;
+}
+.instagram__items {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+.instagram__img {
+  display: block;
+  object-fit: cover;
+  border-radius: 20px;
+}
+// Instagram end
