@@ -60,7 +60,7 @@ body {
   font-weight: 500;
 }
 
-.tabs__name, .feedback__author-name {
+.tabs__name, .feedback__author-name, .footer__links {
   font-family: 'ProbaPro-Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -474,4 +474,65 @@ p {
 
 .footer {
   margin-top: 120px;
+  padding: 38px 0 39px;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0.2)));
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+  border: 1px solid #efefef;
+}
+
+.footer__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+}
+
+.footer__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-size: 14px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.footer__link {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.footer__link:hover {
+  color: #008f99;
+}
+
+.footer__item + .footer__item {
+  margin-left: 30px;
+}
+
+.footer__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.footer__social-item + .footer__social-item {
+  margin-left: 10px;
 }
