@@ -130,6 +130,29 @@ p {
   background: $light-blue url('/images/icons/cart-icon.svg') no-repeat 50% 50%;
 }
 // Header end
+
+// Hero start
+.hero {
+  margin-top: 15px;
+  padding: 106px 0;
+  background: #def1ee url('/images/content/hero-bg.png') no-repeat 95% 100%;
+}
+.hero__inner {
+  width: 600px;
+  max-width: 100%;
+}
+.hero__title {
+  @extend %futurapt-bold;
+  font-size: 72px;
+  line-height: 1;
+  color: $dark-blue;
+}
+.hero__text {
+  width: 600px;
+  max-width: 100%;
+  margin-top: 40px;
+}
+// Hero end
 // Menu start
 .menu,
 .feedback {

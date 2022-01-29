@@ -66,7 +66,7 @@ body {
   font-weight: 700;
 }
 
-.title, .form__title {
+.title, .hero__title, .form__title {
   font-family: 'FuturaPT-Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -252,6 +252,29 @@ p {
 
 .header__cart:hover {
   background: #6cbab8 url("/images/icons/cart-icon.svg") no-repeat 50% 50%;
+}
+
+.hero {
+  margin-top: 15px;
+  padding: 106px 0;
+  background: #def1ee url("/images/content/hero-bg.png") no-repeat 95% 100%;
+}
+
+.hero__inner {
+  width: 600px;
+  max-width: 100%;
+}
+
+.hero__title {
+  font-size: 72px;
+  line-height: 1;
+  color: #008f99;
+}
+
+.hero__text {
+  width: 600px;
+  max-width: 100%;
+  margin-top: 40px;
 }
 
 .menu,
