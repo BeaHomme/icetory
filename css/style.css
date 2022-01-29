@@ -66,7 +66,7 @@ body {
   font-weight: 700;
 }
 
-.title, .hero__title, .form__title {
+.title, .hero__title, .process__number, .process__text-title, .form__title {
   font-family: 'FuturaPT-Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -129,9 +129,11 @@ p {
 }
 
 .title {
+  padding-bottom: 12px;
   font-size: 48px;
   line-height: 1;
   color: #414042;
+  border-bottom: 1px solid rgba(108, 186, 184, 0.4);
 }
 
 .header {
@@ -327,6 +329,107 @@ p {
 
 .process {
   margin-top: 120px;
+}
+
+.process__items {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  margin-top: 60px;
+  gap: 80px 220px;
+}
+
+.process__item:nth-child(3) {
+  -ms-grid-column: span 2;
+      grid-column-start: span 2;
+}
+
+.process__item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 32px 38px 32px 50px;
+  background-color: #fff;
+  border: 1px solid #def1ee;
+  border-radius: 20px;
+}
+
+.process__item--long {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.process__number {
+  font-size: 96px;
+  line-height: 1;
+  color: #6cbab8;
+}
+
+.process__text {
+  margin-left: 20px;
+}
+
+.process__text--long {
+  width: 700px;
+  max-width: 100%;
+}
+
+.process__text-title {
+  margin-bottom: 24px;
+  font-size: 32px;
+  line-height: 1.28;
+}
+
+.process__img {
+  margin-left: auto;
+}
+
+.process__item::after {
+  position: absolute;
+  content: '';
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  z-index: -1;
+}
+
+.process__item:first-child::after {
+  left: 100%;
+  width: 222px;
+  height: 2px;
+  background-image: url("/images/icons/process-line-1.svg");
+}
+
+.process__item:nth-child(2)::after {
+  right: 50%;
+  top: 100%;
+  width: 700px;
+  height: 82px;
+  background-image: url("/images/icons/process-line-2.svg");
+}
+
+.process__item:nth-child(4)::after {
+  right: 50%;
+  bottom: 100%;
+  width: 2px;
+  height: 82px;
+  background-image: url("/images/icons/process-line-3.svg");
+}
+
+.process__item:last-child::after {
+  right: 100%;
+  width: 222px;
+  height: 2px;
+  background-image: url("/images/icons/process-line-1.svg");
 }
 
 .menu,
