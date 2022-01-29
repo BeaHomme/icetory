@@ -135,7 +135,8 @@ p {
 .hero {
   margin-top: 15px;
   padding: 106px 0;
-  background: #def1ee url('/images/content/hero-bg.png') no-repeat 95% 100%;
+  background: #def1ee url('/images/content/hero-bg.png') no-repeat
+    calc(50vw - 35px) 100%;
 }
 .hero__inner {
   width: 600px;
@@ -153,6 +154,50 @@ p {
   margin-top: 40px;
 }
 // Hero end
+
+// Stories start
+.stories {
+  margin-top: 100px;
+}
+.stories__items {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.stories__item {
+  position: relative;
+  flex: 0 0 280px;
+  width: 280px;
+  height: 280px;
+  border-radius: 30px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 3px solid white;
+}
+.stories__item + .stories__item {
+  margin-left: 23px;
+}
+.stories__item--active {
+  outline: 7px solid $orange;
+  border-radius: 30px;
+}
+.stories__title {
+  position: absolute;
+  bottom: 17px;
+  left: 17px;
+  width: 240px;
+  @extend %probapro-bold;
+  font-size: 30px;
+  line-height: 1;
+}
+// Stories end
+
+// Process start
+.process {
+  margin-top: 120px;
+}
+// Process end
+
 // Menu start
 .menu,
 .feedback {

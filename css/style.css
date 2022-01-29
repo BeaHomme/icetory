@@ -60,7 +60,7 @@ body {
   font-weight: 500;
 }
 
-.header__list, .tabs__name, .feedback__author-name, .footer__links {
+.header__list, .stories__title, .tabs__name, .feedback__author-name, .footer__links {
   font-family: 'ProbaPro-Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -257,7 +257,7 @@ p {
 .hero {
   margin-top: 15px;
   padding: 106px 0;
-  background: #def1ee url("/images/content/hero-bg.png") no-repeat 95% 100%;
+  background: #def1ee url("/images/content/hero-bg.png") no-repeat calc(50vw - 35px) 100%;
 }
 
 .hero__inner {
@@ -275,6 +275,58 @@ p {
   width: 600px;
   max-width: 100%;
   margin-top: 40px;
+}
+
+.stories {
+  margin-top: 100px;
+}
+
+.stories__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.stories__item {
+  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 280px;
+          flex: 0 0 280px;
+  width: 280px;
+  height: 280px;
+  border-radius: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  cursor: pointer;
+  border: 3px solid white;
+}
+
+.stories__item + .stories__item {
+  margin-left: 23px;
+}
+
+.stories__item--active {
+  outline: 7px solid #ff7a50;
+  border-radius: 30px;
+}
+
+.stories__title {
+  position: absolute;
+  bottom: 17px;
+  left: 17px;
+  width: 240px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.process {
+  margin-top: 120px;
 }
 
 .menu,
