@@ -1,4 +1,3 @@
-const swiper = new Swiper('.feedback__swiper', {
-  slidesPerView: 3,
-  grabCursor: true,
+const swiper = new Swiper('.stories__swiper', {
+  slidesPerView: 4,
 });

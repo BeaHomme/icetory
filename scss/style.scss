@@ -161,12 +161,8 @@ p {
 .stories {
   margin-top: 90px;
   overflow-x: hidden;
-  overflow-y: visible;
 }
 .stories__items {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   padding: 10px;
 }
 .stories__item {
