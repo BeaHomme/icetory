@@ -160,6 +160,7 @@ p {
 // Stories start
 .stories {
   margin-top: 100px;
+  overflow-x: hidden;
 }
 .stories__items {
   display: flex;
@@ -284,7 +285,7 @@ p {
   margin-top: 120px;
 }
 .tabs {
-  margin-top: 60px;
+  margin-top: 50px;
 }
 .tabs__nav {
   display: flex;
@@ -299,17 +300,19 @@ p {
   padding: 17px 20px;
   font-size: 26px;
   line-height: 1;
-  border: 2px solid #008f99;
-  border-radius: 24px;
+  border: 2px solid $light-blue;
+  border-radius: 10px;
   transition: all 0.3s;
   cursor: pointer;
 }
 .tabs__nav-item:hover {
-  background-color: #008f99;
+  background-color: $dark-blue;
+  border: 2px solid $dark-blue;
   color: #fff;
 }
 .tabs__nav-item--active {
-  background-color: #008f99;
+  background-color: $dark-blue;
+  border: 2px solid $dark-blue;
   color: #fff;
   cursor: default;
 }
@@ -337,7 +340,6 @@ p {
     rgba(255, 255, 255, 0.2)
   );
   border: 1px solid #efefef;
-  border-radius: 20px;
 }
 .tabs__tag {
   position: absolute;
@@ -348,11 +350,9 @@ p {
   line-height: 1;
   color: #fff;
   background: $orange;
-  border-radius: 6px;
 }
 .tabs__img {
   display: block;
-  border-radius: 16px;
 }
 .tabs__name {
   margin-top: 20px;
@@ -373,15 +373,27 @@ p {
   padding: 18px;
   width: 100%;
   @extend %probapro-medium;
+  font-size: 22px;
   color: #fff;
   text-align: center;
-  border-radius: 16px;
-  background-color: $light-blue;
+  background-color: $dark-blue;
   transition: all 0.3s;
   cursor: pointer;
 }
 .tabs__price:hover {
-  background-color: $dark-blue;
+  background-color: $light-blue;
+}
+.tabs__price--old {
+  margin-left: 10px;
+  font-size: 18px;
+  color: #e9e3e3;
+  text-decoration: line-through;
+}
+.tabs__price--discount {
+  background-color: $orange;
+}
+.tabs__price--discount:hover {
+  background-color: lighten($orange, 10%);
 }
 // Menu end
 
