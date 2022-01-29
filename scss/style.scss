@@ -84,11 +84,19 @@ p {
   background-color: #008f99;
   color: #fff;
 }
+.tabs__nav-item--active {
+  background-color: #008f99;
+  color: #fff;
+  cursor: default;
+}
 .tabs__content {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px 20px;
   margin-top: 60px;
+}
+.tabs__content--active {
+  display: grid;
 }
 .tabs__item {
   position: relative;
@@ -115,7 +123,7 @@ p {
   font-size: 22px;
   line-height: 1;
   color: #fff;
-  background: $pink;
+  background: $orange;
   border-radius: 6px;
 }
 .tabs__img {

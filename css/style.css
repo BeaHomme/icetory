@@ -176,13 +176,23 @@ p {
   color: #fff;
 }
 
+.tabs__nav-item--active {
+  background-color: #008f99;
+  color: #fff;
+  cursor: default;
+}
+
 .tabs__content {
-  display: -ms-grid;
-  display: grid;
+  display: none;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px 20px;
   margin-top: 60px;
+}
+
+.tabs__content--active {
+  display: -ms-grid;
+  display: grid;
 }
 
 .tabs__item {
@@ -217,7 +227,7 @@ p {
   font-size: 22px;
   line-height: 1;
   color: #fff;
-  background: #ff8181;
+  background: #ff7a50;
   border-radius: 6px;
 }
 
