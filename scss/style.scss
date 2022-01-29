@@ -159,13 +159,15 @@ p {
 
 // Stories start
 .stories {
-  margin-top: 100px;
+  margin-top: 90px;
   overflow-x: hidden;
+  overflow-y: visible;
 }
 .stories__items {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  padding: 10px;
 }
 .stories__item {
   position: relative;
@@ -197,7 +199,7 @@ p {
 
 // Process start
 .process {
-  margin-top: 120px;
+  margin-top: 110px;
 }
 .process__items {
   display: grid;
