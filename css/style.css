@@ -1039,7 +1039,6 @@ p {
   width: 30px;
   height: 30px;
   background: #6cbab8 no-repeat center;
-  border-radius: 8px;
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
