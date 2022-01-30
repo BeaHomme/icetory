@@ -125,6 +125,7 @@ p {
   height: 40px;
   background: $dark-blue url('/images/icons/cart-icon.svg') no-repeat 50% 50%;
   border-radius: 10px;
+  border: none;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -296,6 +297,7 @@ p {
   padding: 17px 20px;
   font-size: 26px;
   line-height: 1;
+  background-color: #fff;
   border: 2px solid $light-blue;
   border-radius: 10px;
   transition: all 0.3s;
@@ -373,6 +375,7 @@ p {
   color: #fff;
   text-align: center;
   background-color: $dark-blue;
+  border: none;
   transition: all 0.3s;
   cursor: pointer;
 }
