@@ -414,8 +414,15 @@ p {
   width: 471px;
   background: #def1ee;
   border: 1px solid #def1ee;
+  transform: scale(0.66);
+  transform-origin: center 0;
+  background: #fff;
   transition: transform 0.3s ease, background 0.3s ease,
     transform-origin 0.3s ease;
+}
+.feedback__item.swiper-slide-active {
+  background-color: #def1ee;
+  transform: scale(1);
 }
 .feedback__item.swiper-slide-active::before {
   position: absolute;
@@ -433,7 +440,6 @@ p {
 .feedback__item.swiper-slide-next {
   transform: scale(0.66);
   transform-origin: 0 0;
-  background: #fff;
 }
 .feedback__item.swiper-slide-prev {
   transform-origin: 100% 0;
