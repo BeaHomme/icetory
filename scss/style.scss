@@ -173,14 +173,12 @@ p {
   border-radius: 30px;
   object-fit: cover;
   cursor: pointer;
-  border: 3px solid white;
 }
 .stories__item + .stories__item {
   margin-left: 23px;
 }
 .stories__item--active {
-  outline: 7px solid $orange;
-  border-radius: 30px;
+  box-shadow: 0px 0px 0px 7px $orange, 0px 0px 0px 3px #fff inset;
 }
 .stories__title {
   position: absolute;

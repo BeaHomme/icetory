@@ -299,7 +299,6 @@ p {
   -o-object-fit: cover;
      object-fit: cover;
   cursor: pointer;
-  border: 3px solid white;
 }
 
 .stories__item + .stories__item {
@@ -307,8 +306,8 @@ p {
 }
 
 .stories__item--active {
-  outline: 7px solid #ff7a50;
-  border-radius: 30px;
+  -webkit-box-shadow: 0px 0px 0px 7px #ff7a50, 0px 0px 0px 3px #fff inset;
+          box-shadow: 0px 0px 0px 7px #ff7a50, 0px 0px 0px 3px #fff inset;
 }
 
 .stories__title {
