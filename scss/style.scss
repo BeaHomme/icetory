@@ -179,7 +179,7 @@ p {
   margin-left: 23px;
 }
 .stories__item--active {
-  box-shadow: 0px 0px 0px 7px $orange, 0px 0px 0px 3px #fff inset;
+  box-shadow: 0px 0px 0px 3px #fff, 0px 0px 0px 10px $orange;
 }
 .stories__title {
   position: absolute;
