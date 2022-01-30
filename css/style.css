@@ -746,6 +746,11 @@ p {
   gap: 100px;
 }
 
+.about__title {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
 .form__title {
   font-size: 36px;
   line-height: 1;
@@ -768,7 +773,6 @@ p {
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0.2)));
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   border: 1px solid #def1ee;
-  border-radius: 20px;
 }
 
 .form__input {
@@ -780,7 +784,6 @@ p {
   line-height: 1;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid #6cbab8;
-  border-radius: 10px;
 }
 
 .form__input + .form__input {
@@ -796,7 +799,6 @@ p {
   line-height: 1;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid #6cbab8;
-  border-radius: 10px;
   resize: none;
 }
 
@@ -835,8 +837,7 @@ p {
   text-align: center;
   color: #fff;
   text-transform: uppercase;
-  background: #6cbab8;
-  border-radius: 10px;
+  background: #008f99;
   border: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -844,7 +845,7 @@ p {
 }
 
 .form__btn:hover {
-  background-color: #008f99;
+  background-color: #6cbab8;
 }
 
 .footer {

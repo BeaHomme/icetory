@@ -530,6 +530,10 @@ p {
   justify-content: space-between;
   gap: 100px;
 }
+.about__title {
+  padding-bottom: 0;
+  border-bottom: none;
+}
 .form__title {
   @extend %futurapt-bold;
   font-size: 36px;
@@ -554,7 +558,6 @@ p {
     rgba(255, 255, 255, 0.2)
   );
   border: 1px solid #def1ee;
-  border-radius: 20px;
 }
 .form__input {
   margin-top: 40px;
@@ -565,7 +568,6 @@ p {
   line-height: 1;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid #6cbab8;
-  border-radius: 10px;
 }
 .form__input + .form__input {
   margin-top: 20px;
@@ -579,7 +581,6 @@ p {
   line-height: 1;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid #6cbab8;
-  border-radius: 10px;
   resize: none;
 }
 .form__input::placeholder,
@@ -602,14 +603,13 @@ p {
   text-align: center;
   color: #fff;
   text-transform: uppercase;
-  background: $light-blue;
-  border-radius: 10px;
+  background: $dark-blue;
   border: none;
   transition: all 0.3s;
   cursor: pointer;
 }
 .form__btn:hover {
-  background-color: $dark-blue;
+  background-color: $light-blue;
 }
 // About us end
 
