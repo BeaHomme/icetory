@@ -39,12 +39,12 @@ const openCart = function () {
       </div>
     </div>
   </div>
-  <div class="card__bottom">
+  <div class="cart__bottom">
     <div class="cart__amount">
-      <div class="card__amount-text">Сумма заказа</div>
-      <div class="card__amount-number">600 ₽</div>
+      <div class="cart__amount-text">Сумма заказа</div>
+      <div class="cart__amount-number">600 ₽</div>
     </div>
-    <button class="card__btn">Оформить</button>
+    <button class="cart__btn">Оформить</button>
   </div>
 </div>
 <div class="overlay"></div>
