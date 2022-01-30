@@ -715,7 +715,7 @@ p {
 }
 
 .instagram__items {
-  margin-top: 60px;
+  margin-top: 51px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
@@ -727,7 +727,6 @@ p {
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 20px;
 }
 
 .about {

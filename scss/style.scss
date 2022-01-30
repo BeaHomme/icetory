@@ -509,7 +509,7 @@ p {
   margin-top: 120px;
 }
 .instagram__items {
-  margin-top: 60px;
+  margin-top: 51px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
@@ -517,7 +517,6 @@ p {
 .instagram__img {
   display: block;
   object-fit: cover;
-  border-radius: 20px;
 }
 // Instagram end
 
