@@ -231,6 +231,7 @@ p {
 }
 .process__text {
   margin-left: 20px;
+  @extend %probapro-medium;
 }
 .process__text--long {
   width: 700px;
@@ -238,12 +239,13 @@ p {
 }
 .process__text-title {
   margin-bottom: 24px;
-  @extend %futurapt-bold;
+  @extend %probapro-bold;
   font-size: 32px;
   line-height: 1.28;
 }
 .process__img {
   margin-left: auto;
+  transform: rotate(-20deg);
 }
 .process__item::after {
   position: absolute;
@@ -356,10 +358,12 @@ p {
 }
 .tabs__img {
   display: block;
+  max-width: 100%;
 }
 .tabs__name {
   margin-top: 20px;
-  max-width: 250px;
+  width: 250px;
+  max-width: 100%;
   @extend %probapro-bold;
   font-size: 22px;
   line-height: 1;
@@ -527,6 +531,7 @@ p {
 }
 .instagram__img {
   display: block;
+  width: 100%;
   object-fit: cover;
 }
 // Instagram end
@@ -539,14 +544,14 @@ p {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 100px;
+  gap: 10px;
 }
 .about__title {
   padding-bottom: 0;
   border-bottom: none;
 }
 .form__title {
-  @extend %futurapt-bold;
+  @extend %probapro-bold;
   font-size: 36px;
   line-height: 1;
   color: $black;
@@ -988,3 +993,5 @@ p {
   cursor: pointer;
 }
 // Product card end
+
+@import 'media';

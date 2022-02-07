@@ -1,0 +1,122 @@
+@media (max-width: 1200px) {
+  .feedback__swiper {
+    margin-top: 22px;
+    width: 386px;
+  }
+  .feedback__item {
+    padding: 15px 36px 30px;
+  }
+  .feedback__author-name {
+    margin-top: 15px;
+  }
+  .feedback__author-descr {
+    margin-top: 10px;
+  }
+  .feedback__text {
+    margin-top: 25px;
+    font-size: 18px;
+  }
+  .feedback__text-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  .about__left {
+    width: 410px;
+    max-width: 100%;
+  }
+  .form {
+    padding: 80px;
+  }
+}
+@media (max-width: 1024px) {
+  .title {
+    padding-bottom: 8px;
+  }
+  .hero {
+    background: #def1ee url(/images/content/hero-bg.png) no-repeat
+      calc(50vw + 50px) 100%;
+  }
+  .stories,
+  .instagram {
+    margin-top: 80px;
+  }
+  .stories__item {
+    flex: 0 0 230px;
+    width: 230px;
+    height: 230px;
+    background-size: cover;
+  }
+  .stories__item + .stories__item {
+    margin-left: 16px;
+  }
+  .stories__item--active {
+    box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 5px #ff7a50;
+    margin-right: 5px;
+  }
+  .stories__item--active + .stories__item--active {
+    margin-left: 21px;
+  }
+  .stories__title {
+    width: 200px;
+  }
+  .process,
+  .menu,
+  .feedback,
+  .about {
+    padding-top: 80px;
+  }
+  .process__items {
+    gap: 60px 16px;
+  }
+  .process__item {
+    padding: 32px 41px 32px 30px;
+  }
+  .process__item--long {
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 20px;
+  }
+  .process__img {
+    align-self: center;
+    margin-left: -20px;
+  }
+  .process__text--long {
+    margin-right: auto;
+    width: 554px;
+  }
+  .process__text-title {
+    display: inline-block;
+    margin-bottom: 20px;
+    white-space: nowrap;
+  }
+  .process__item:first-child::after {
+    left: 87%;
+  }
+  .process__item:nth-child(2)::after {
+    width: 491px;
+    height: 60px;
+  }
+  .tabs {
+    margin-top: 40px;
+  }
+  .tabs__nav-item {
+    padding: 17px;
+  }
+  .tabs__content {
+    grid-gap: 13px 16px;
+    margin-top: 40px;
+  }
+  .tabs__item {
+    max-width: 230px;
+  }
+  .instagram__items {
+    margin-top: 40px;
+    grid-gap: 16px;
+  }
+  .footer {
+    margin-top: 80px;
+  }
+  .footer__item + .footer__item {
+    margin-left: 20px;
+  }
+}
