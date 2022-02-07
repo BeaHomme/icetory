@@ -137,6 +137,9 @@ p {
 .header__cart:hover {
   background: $light-blue url('/images/icons/cart-icon.svg') no-repeat 50% 50%;
 }
+.header__btn-mobile {
+  display: none;
+}
 // Header end
 
 // Hero start
@@ -291,16 +294,17 @@ p {
 .tabs {
   margin-top: 50px;
 }
-.tabs__nav {
+.tabs__line {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  flex-wrap: wrap;
-  margin-bottom: -20px;
+  flex-wrap: nowrap;
+}
+.tabs__line + .tabs__line {
+  margin-top: 20px;
 }
 .tabs__nav-item {
-  margin-right: 20px;
-  margin-bottom: 20px;
+  box-sizing: border-box;
   padding: 17px 20px;
   font-size: 26px;
   line-height: 1;
@@ -309,6 +313,9 @@ p {
   border-radius: 10px;
   transition: all 0.3s;
   cursor: pointer;
+}
+.tabs__nav-item + .tabs__nav-item {
+  margin-left: 20px;
 }
 .tabs__nav-item:hover {
   background-color: $dark-blue;
@@ -362,8 +369,7 @@ p {
 }
 .tabs__name {
   margin-top: 20px;
-  width: 250px;
-  max-width: 100%;
+  max-width: 250px;
   @extend %probapro-bold;
   font-size: 22px;
   line-height: 1;
@@ -516,6 +522,9 @@ p {
   @extend %probapro-medium;
   font-size: 24px;
   margin-bottom: 20px;
+}
+.swiper-pagination {
+  display: none;
 }
 // Feedback end
 
@@ -677,6 +686,9 @@ p {
 }
 .footer__social-link:hover {
   opacity: 0.7;
+}
+.footer__mobile {
+  display: none;
 }
 // Footer end
 

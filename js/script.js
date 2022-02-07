@@ -18,6 +18,15 @@ const swiperFeedback = new Swiper('.feedback__swiper', {
     nextEl: '.feedback__next',
     prevEl: '.feedback__prev',
   },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+    850: {
+      initialSlide: 0,
+    },
+  },
 });
 
 const openCart = function () {
