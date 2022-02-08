@@ -49,9 +49,9 @@ cartBtn.addEventListener('click', openCart);
 toggleBtn.addEventListener('click', function () {
   toggleBtn.classList.toggle('header__btn-mobile--active');
   overlay.classList.add('overlay--active');
-  headerNav.classList.toggle('header__nav--visible');
-  footer.classList.toggle('footer--visible');
-  body.classList.toggle('page--disabled');
+  headerNav.classList.add('header__nav--visible');
+  footer.classList.add('footer--visible');
+  body.classList.add('page--disabled');
 });
 
 const closeMenu = function () {

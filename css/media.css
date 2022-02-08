@@ -396,7 +396,7 @@
   }
 }
 
-@media (max-height: 578px) {
+@media (max-height: 560px) {
   .footer--visible .footer__social {
     left: unset;
     right: 25px;
