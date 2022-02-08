@@ -203,6 +203,7 @@ p {
 // Process start
 .process {
   padding-top: 110px;
+  overflow-x: hidden;
 }
 .process__items {
   display: grid;
