@@ -448,10 +448,10 @@ p {
 }
 
 .tabs {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
-.tabs__line {
+.tabs__nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -461,17 +461,14 @@ p {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-}
-
-.tabs__line + .tabs__line {
-  margin-top: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-height: 168px;
 }
 
 .tabs__nav-item {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  margin-right: 20px;
+  margin-top: 20px;
   padding: 17px 20px;
   font-size: 26px;
   line-height: 1;
@@ -481,10 +478,6 @@ p {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
-}
-
-.tabs__nav-item + .tabs__nav-item {
-  margin-left: 20px;
 }
 
 .tabs__nav-item:hover {
@@ -1546,7 +1539,7 @@ body {
     height: 60px;
   }
   .tabs {
-    margin-top: 40px;
+    margin-top: 20px;
   }
   .tabs__nav-item {
     padding: 17px;
@@ -1654,27 +1647,22 @@ body {
     left: 95%;
   }
   .tabs {
-    margin-top: 30px;
+    margin-top: 10px;
+  }
+  .tabs__wrapper {
+    overflow-x: scroll;
+    margin-right: -25px;
   }
   .tabs__nav {
-    margin-right: -25px;
-    overflow-x: scroll;
-  }
-  .tabs__line {
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    min-width: 741px;
   }
   .tabs__nav-item {
+    margin-right: 10px;
+    margin-top: 10px;
     font-size: 18px;
     padding: 13px 20px;
     border-radius: 5px;
     white-space: nowrap;
-  }
-  .tabs__line + .tabs__line {
-    margin-top: 10px;
-  }
-  .tabs__nav-item + .tabs__nav-item {
-    margin-left: 10px;
   }
   .tabs__content {
     -ms-grid-columns: (49%)[2];

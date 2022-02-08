@@ -110,7 +110,7 @@
     height: 60px;
   }
   .tabs {
-    margin-top: 40px;
+    margin-top: 20px;
   }
   .tabs__nav-item {
     padding: 17px;
@@ -202,26 +202,22 @@
     left: 95%;
   }
   .tabs {
-    margin-top: 30px;
+    margin-top: 10px;
+  }
+  .tabs__wrapper {
+    overflow-x: scroll;
+    margin-right: -25px;
   }
   .tabs__nav {
-    margin-right: -25px;
-    overflow-x: scroll;
-  }
-  .tabs__line {
-    flex-wrap: nowrap;
+    min-width: 741px;
   }
   .tabs__nav-item {
+    margin-right: 10px;
+    margin-top: 10px;
     font-size: 18px;
     padding: 13px 20px;
     border-radius: 5px;
     white-space: nowrap;
-  }
-  .tabs__line + .tabs__line {
-    margin-top: 10px;
-  }
-  .tabs__nav-item + .tabs__nav-item {
-    margin-left: 10px;
   }
   .tabs__content {
     grid-template-columns: repeat(2, 49%);
