@@ -1890,15 +1890,21 @@ body {
   .process__item:last-child::after {
     background-image: none;
   }
+  .tabs__item {
+    padding: 5px 4px 10px;
+    min-height: 253px;
+  }
   .tabs__tag {
-    font-size: 15px;
     top: 15px;
     left: 15px;
+    font-size: 15px;
   }
   .tabs__name {
+    max-width: 100%;
     font-size: 18px;
   }
   .tabs__descr {
+    margin-bottom: 25px;
     font-size: 15px;
   }
   .tabs__price {
@@ -1971,5 +1977,36 @@ body {
     -webkit-box-shadow: 0px 0px 0px 1px #fff, 0px 0px 0px 3.5px #ff7a50;
             box-shadow: 0px 0px 0px 1px #fff, 0px 0px 0px 3.5px #ff7a50;
     margin-right: 4px;
+  }
+}
+
+@media (max-width: 330px) {
+  .hero__title {
+    font-size: 33px;
+  }
+  .hero__text {
+    max-width: 212px;
+  }
+  .process__text-title {
+    position: static;
+  }
+  .process__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .process__text {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .process__img {
+    bottom: -15px;
+    right: -15px;
+    width: 70px;
+    height: 70px;
   }
 }
