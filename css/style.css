@@ -463,7 +463,6 @@ p {
           justify-content: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  max-height: 168px;
 }
 
 .tabs__nav-item {
@@ -495,8 +494,8 @@ p {
 
 .tabs__content {
   display: none;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: (23.5%)[4];
+      grid-template-columns: repeat(4, 23.5%);
   grid-gap: 15px 20px;
   margin-top: 60px;
 }
@@ -547,7 +546,8 @@ p {
 
 .tabs__name {
   margin-top: 20px;
-  max-width: 250px;
+  width: 250px;
+  max-width: 100%;
   font-size: 22px;
   line-height: 1;
   word-wrap: break-word;
@@ -1422,10 +1422,6 @@ body {
 }
 
 @media (max-width: 1200px) {
-  .tabs__content {
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
-  }
   .tabs__item {
     max-width: 100%;
   }

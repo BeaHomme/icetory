@@ -1,8 +1,4 @@
 @media (max-width: 1200px) {
-  .tabs__content {
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
-  }
   .tabs__item {
     max-width: 100%;
   }

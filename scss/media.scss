@@ -1,9 +1,6 @@
 @import 'vars';
 
 @media (max-width: 1200px) {
-  .tabs__content {
-    grid-template-columns: repeat(3, 1fr);
-  }
   .tabs__item {
     max-width: 100%;
   }
