@@ -212,6 +212,7 @@
     flex-wrap: nowrap;
   }
   .tabs__nav-item {
+    font-size: 18px;
     padding: 13px 20px;
     border-radius: 5px;
     white-space: nowrap;
@@ -223,7 +224,7 @@
     margin-left: 10px;
   }
   .tabs__content {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 49%);
     grid-gap: 20px 10px;
     margin-top: 45px;
   }
@@ -416,11 +417,56 @@
   .process__item:last-child::after {
     background-image: none;
   }
+  .tabs__tag {
+    font-size: 15px;
+    top: 15px;
+    left: 15px;
+  }
+  .tabs__name {
+    font-size: 18px;
+  }
+  .tabs__descr {
+    font-size: 15px;
+  }
+  .tabs__price {
+    padding: 11px;
+    font-size: 18px;
+  }
   .instagram__items {
+    margin-top: 30px;
+    grid-gap: 10px;
+    margin-right: -25px;
     overflow-x: scroll;
   }
   .instagram__img {
     width: 158px;
+  }
+  .form {
+    padding: 55px;
+    width: 100%;
+  }
+  .form__title {
+    font-size: 22px;
+  }
+  .form__input,
+  .form__textarea {
+    padding: 7px 20px;
+    font-size: 12px;
+  }
+  .form__input {
+    margin-top: 30px;
+    height: 28px;
+  }
+  .form__input + .form__input {
+    margin-top: 12px;
+  }
+  .form__textarea {
+    margin-top: 12px;
+    height: 52px;
+  }
+  .form__btn {
+    margin-top: 12px;
+    height: 40px;
   }
 }
 @media (max-width: 568px) {
