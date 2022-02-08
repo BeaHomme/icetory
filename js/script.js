@@ -48,7 +48,7 @@ cartBtn.addEventListener('click', openCart);
 
 toggleBtn.addEventListener('click', function () {
   toggleBtn.classList.toggle('header__btn-mobile--active');
-  overlay.classList.toggle('overlay--active');
+  overlay.classList.add('overlay--active');
   headerNav.classList.toggle('header__nav--visible');
   footer.classList.toggle('footer--visible');
   body.classList.toggle('page--disabled');
