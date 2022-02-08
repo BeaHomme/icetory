@@ -225,6 +225,7 @@ p {
 }
 .process__item--long {
   align-items: flex-start;
+  border: 3px solid #def1ee;
 }
 .process__number {
   @extend %futurapt-bold;
@@ -241,10 +242,12 @@ p {
   max-width: 100%;
 }
 .process__text-title {
-  margin-bottom: 24px;
   @extend %probapro-bold;
   font-size: 32px;
   line-height: 1.28;
+}
+.process__span {
+  margin-top: 24px;
 }
 .process__img {
   margin-left: auto;

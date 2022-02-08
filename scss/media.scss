@@ -97,8 +97,10 @@
   }
   .process__text-title {
     display: inline-block;
-    margin-bottom: 20px;
     white-space: nowrap;
+  }
+  .process__span {
+    margin-top: 20px;
   }
   .process__item:first-child::after {
     left: 87%;
@@ -203,6 +205,7 @@
     margin-top: 30px;
   }
   .tabs__nav {
+    margin-right: -25px;
     overflow-x: scroll;
   }
   .tabs__line {
@@ -342,10 +345,108 @@
   }
 }
 @media (max-width: 768px) {
+  .header {
+    padding: 11px 0;
+  }
+  .header__logo {
+    width: 171px;
+  }
+  .hero {
+    padding: 66px 0;
+    background: #def1ee url(/images/content/hero-bg-mobile.png) no-repeat;
+    background-position: bottom right;
+  }
+  .hero__title {
+    max-width: 295px;
+    font-size: 36px;
+  }
+  .hero__text {
+    max-width: 256px;
+  }
+  .process,
+  .menu,
+  .feedback,
+  .about {
+    padding-top: 60px;
+  }
+  .process__items {
+    margin-top: 30px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .process__item {
+    padding: 23px 32px 23px 10px;
+  }
+  .process__item:nth-child(3) {
+    position: relative;
+    flex-direction: column;
+    grid-column-start: inherit;
+  }
+  .process__text--long {
+    margin-left: 0;
+    width: 100%;
+  }
+  .process__text-title {
+    position: absolute;
+    top: 23px;
+    left: 111px;
+    right: 25px;
+    line-height: 1;
+    white-space: normal;
+  }
+  .process__span {
+    margin-top: 20px;
+  }
+  .process__img {
+    position: absolute;
+    bottom: -22px;
+    right: -25px;
+    width: 90px;
+    height: 90px;
+  }
+  .process__item:not(:last-child)::after {
+    background-image: none;
+    border-left: 2px dashed $dark-blue;
+    height: 20px;
+    width: 2px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .process__item:last-child::after {
+    background-image: none;
+  }
   .instagram__items {
     overflow-x: scroll;
   }
   .instagram__img {
     width: 158px;
+  }
+}
+@media (max-width: 568px) {
+  .stories {
+    margin-top: 15px;
+  }
+  .stories__item {
+    flex: 0 0 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+  }
+  .stories__title {
+    left: 7px;
+    bottom: 7px;
+    max-width: 82px;
+    font-size: 10px;
+  }
+  .stories__item + .stories__item {
+    margin-left: 7px;
+  }
+  .stories__item--active + .stories__item--active {
+    margin-left: 10px;
+  }
+  .stories__item--active {
+    box-shadow: 0px 0px 0px 1px #fff, 0px 0px 0px 3.5px #ff7a50;
+    margin-right: 4px;
   }
 }
