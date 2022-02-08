@@ -47,7 +47,7 @@ const openCart = function () {
 cartBtn.addEventListener('click', openCart);
 
 toggleBtn.addEventListener('click', function () {
-  toggleBtn.classList.toggle('header__btn-mobile--active');
+  toggleBtn.classList.add('header__btn-mobile--active');
   overlay.classList.add('overlay--active');
   headerNav.classList.add('header__nav--visible');
   footer.classList.add('footer--visible');
