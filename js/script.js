@@ -1,7 +1,14 @@
 'use strict';
 
 const body = document.querySelector('body');
+const cart = document.querySelector('.cart');
 const cartBtn = document.querySelector('.header__cart');
+const closeBtn = document.querySelector('.cart__close');
+const toggleBtn = document.querySelector('.header__btn-mobile');
+const headerNav = document.querySelector('.header__nav');
+const footer = document.querySelector('.footer');
+const overlay = document.querySelector('.overlay');
+const navLink = document.querySelectorAll('.header__link');
 
 const swiperStories = new Swiper('.stories__swiper', {
   slidesPerView: 'auto',
@@ -25,50 +32,19 @@ const swiperFeedback = new Swiper('.feedback__swiper', {
 });
 
 const openCart = function () {
-  const cart = `
-  <div class="cart">
-  <div class="cart__title">Корзина</div>
-  <div class="cart__items">
-    <div class="cart__item">
-      <img src="/images/content/cart-1.jpg" alt="" class="cart__img" />
-      <div class="cart__info">
-        <div class="cart__name">Пицца из печи</div>
-        <div class="cart__price">600 ₽</div>
-        <div class="cart__weight">800 г</div>
-      </div>
-      <div class="cart__number">
-        <span class="cart__remove"></span>
-        <input type="text" class="cart__input" value="1" />
-        <span class="cart__add"></span>
-      </div>
-    </div>
-  </div>
-  <div class="cart__bottom">
-    <div class="cart__amount">
-      <div class="cart__amount-text">Сумма заказа</div>
-      <div class="cart__amount-number">600 ₽</div>
-    </div>
-    <button class="cart__btn">Оформить</button>
-  </div>
-</div>
-<div class="overlay"></div>
-  `;
-  body.insertAdjacentHTML('afterbegin', cart);
-  const overlay = document.querySelector('.overlay');
-  overlay.addEventListener('click', function () {
-    const cartWrapper = document.querySelector('.cart');
-    cartWrapper.remove();
-    overlay.remove();
-  });
+  cart.classList.add('cart--visible');
+  overlay.classList.add('overlay--active');
+  body.classList.add('page--disabled');
+  const closeCart = function () {
+    cart.classList.remove('cart--visible');
+    overlay.classList.remove('overlay--active');
+    body.classList.remove('page--disabled');
+  };
+  overlay.addEventListener('click', closeCart);
+  closeBtn.addEventListener('click', closeCart);
 };
 
 cartBtn.addEventListener('click', openCart);
-
-const toggleBtn = document.querySelector('.header__btn-mobile');
-const headerNav = document.querySelector('.header__nav');
-const footer = document.querySelector('.footer');
-const overlay = document.querySelector('.overlay');
-const navLink = document.querySelectorAll('.header__link');
 
 toggleBtn.addEventListener('click', function () {
   toggleBtn.classList.toggle('header__btn-mobile--active');

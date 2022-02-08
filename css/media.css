@@ -138,7 +138,7 @@
     font-size: 18px;
   }
   .header__nav,
-  .header__right {
+  .header__search {
     display: none;
   }
   .header__btn-mobile {
@@ -245,6 +245,13 @@
   }
   .footer--visible .footer__social-item:last-child {
     margin-left: 10px;
+  }
+  .header__cart {
+    position: fixed;
+    display: block;
+    bottom: 25px;
+    left: 0;
+    right: 0;
   }
   .hero__title {
     font-size: 54px;
@@ -386,6 +393,23 @@
     font-size: 14px;
     line-height: 1;
     text-transform: uppercase;
+  }
+}
+
+@media (max-height: 578px) {
+  .footer--visible .footer__social {
+    left: unset;
+    right: 25px;
+  }
+  .footer--visible .footer__mobile {
+    left: unset;
+    right: 25px;
+  }
+}
+
+@media (max-height: 390px) {
+  .header__item + .header__item {
+    margin-top: 0;
   }
 }
 
