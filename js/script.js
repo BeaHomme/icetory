@@ -63,3 +63,31 @@ const openCart = function () {
 };
 
 cartBtn.addEventListener('click', openCart);
+
+const toggleBtn = document.querySelector('.header__btn-mobile');
+const headerNav = document.querySelector('.header__nav');
+const footer = document.querySelector('.footer');
+const overlay = document.querySelector('.overlay');
+const navLink = document.querySelectorAll('.header__link');
+
+toggleBtn.addEventListener('click', function () {
+  toggleBtn.classList.toggle('header__btn-mobile--active');
+  overlay.classList.toggle('overlay--active');
+  headerNav.classList.toggle('header__nav--visible');
+  footer.classList.toggle('footer--visible');
+  body.classList.toggle('page--disabled');
+});
+
+const closeMenu = function () {
+  toggleBtn.classList.remove('header__btn-mobile--active');
+  overlay.classList.remove('overlay--active');
+  headerNav.classList.remove('header__nav--visible');
+  footer.classList.remove('footer--visible');
+  body.classList.remove('page--disabled');
+};
+
+navLink.forEach((link) => {
+  link.addEventListener('click', closeMenu);
+});
+
+overlay.addEventListener('click', closeMenu);

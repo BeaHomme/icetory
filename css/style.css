@@ -122,10 +122,20 @@ p {
   margin: 0 auto;
 }
 
-.container-fluid {
-  padding: 0;
-  padding-left: 25px;
-  margin-right: calc(50% - 50vw);
+.overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(65, 64, 66, 0.5);
+  z-index: 2;
+}
+
+.overlay--active {
+  display: block;
+  cursor: pointer;
 }
 
 .title {
@@ -1171,17 +1181,6 @@ p {
   background: #6cbab8;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 13;
-}
-
 .card {
   display: none;
   position: fixed;
@@ -1616,6 +1615,59 @@ body {
     -webkit-transform: rotate(-45deg) translateY(-6.4px) translateX(6.2px);
             transform: rotate(-45deg) translateY(-6.4px) translateX(6.2px);
   }
+  .header__nav--visible {
+    position: fixed;
+    display: block;
+    top: 76px;
+    left: 0;
+    right: 0;
+    bottom: 70px;
+    margin-left: 0;
+    padding-top: 49px;
+    padding-left: 25px;
+    background-color: #fff;
+  }
+  .header__nav--visible .header__list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .header__item + .header__item {
+    margin-left: 0;
+    margin-top: 40px;
+  }
+  .header__list {
+    font-size: 36px;
+    font-family: 'FuturaPT-Bold', sans-serif;
+    font-weight: 700;
+    text-transform: initial;
+  }
+  .header__link--phone {
+    display: none;
+  }
+  .footer--visible .footer__social {
+    position: fixed;
+    left: 25px;
+    bottom: 145px;
+    z-index: 14;
+  }
+  .footer--visible .footer__mobile {
+    position: fixed;
+    left: 25px;
+    bottom: 111px;
+    z-index: 14;
+  }
+  .footer--visible .footer__social-img {
+    width: 40px;
+    height: 40px;
+  }
+  .footer--visible .footer__social-item:last-child {
+    margin-left: 10px;
+  }
   .hero__title {
     font-size: 54px;
   }
@@ -1803,6 +1855,9 @@ body {
   }
   .header__logo {
     width: 171px;
+  }
+  .header__nav--visible {
+    top: 57px;
   }
   .hero {
     padding: 66px 0;

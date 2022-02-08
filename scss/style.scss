@@ -43,10 +43,19 @@ p {
   padding: 0 25px;
   margin: 0 auto;
 }
-.container-fluid {
-  padding: 0;
-  padding-left: 25px;
-  margin-right: calc(50% - 50vw);
+.overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(65, 64, 66, 0.5);
+  z-index: 2;
+}
+.overlay--active {
+  display: block;
+  cursor: pointer;
 }
 .title {
   padding-bottom: 12px;
@@ -844,16 +853,6 @@ p {
 }
 .cart__btn:hover {
   background: $light-blue;
-}
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 13;
 }
 // Cart end
 
