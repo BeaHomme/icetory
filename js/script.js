@@ -4,7 +4,7 @@ const body = document.querySelector('body');
 const cartBtn = document.querySelector('.header__cart');
 
 const swiperStories = new Swiper('.stories__swiper', {
-  slidesPerView: 4,
+  slidesPerView: 'auto',
   freeMode: true,
 });
 const swiperFeedback = new Swiper('.feedback__swiper', {
@@ -21,11 +21,6 @@ const swiperFeedback = new Swiper('.feedback__swiper', {
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
-  },
-  breakpoints: {
-    850: {
-      initialSlide: 0,
-    },
   },
 });
 
