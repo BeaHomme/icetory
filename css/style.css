@@ -286,7 +286,9 @@ p {
 }
 
 .header__cart--visible {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .header__cart-amount {
@@ -1776,9 +1778,6 @@ body {
   .header__cart--filled {
     padding: 12px 10px;
     padding-left: 37px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
