@@ -223,8 +223,20 @@
   .header__cart {
     position: fixed;
     bottom: 25px;
-    left: 0;
+    left: 25px;
     right: 0;
+    margin-left: 0;
+    padding: 11px 10px;
+    padding-left: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 50px);
+    font-size: 15px;
+    color: #fff;
+    text-align: right;
+  }
+  .header__cart-name {
   }
   .hero__title {
     font-size: 54px;
