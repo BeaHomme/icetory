@@ -71,8 +71,7 @@ toggleBtn.addEventListener('click', function () {
   overlay.addEventListener('click', closeMenu);
 });
 
-searchInput.addEventListener('keyup', function (e) {
-  console.log(searchInput.value);
+searchInput.addEventListener('keyup', function () {
   const closeSearch = function () {
     searchAnswer.classList.remove('search--visible');
     overlay.classList.remove('overlay--active');

@@ -146,8 +146,22 @@ p {
 .header__cart:hover {
   background: $light-blue url('/images/icons/cart-icon.svg') no-repeat 50% 50%;
 }
+.header__cart--filled {
+  width: auto;
+  padding: 5px 8px;
+  padding-left: 37px;
+  background-position: 5px center;
+}
+.header__cart--filled:hover {
+  background-color: $light-blue;
+  background-position: 5px center;
+}
 .header__cart--visible {
   display: block;
+}
+.header__cart-amount {
+  font-size: 15px;
+  color: #fff;
 }
 .header__btn-mobile {
   display: none;
