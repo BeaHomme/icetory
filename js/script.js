@@ -57,6 +57,7 @@ const closeMenu = function () {
   headerNav.classList.remove('header__nav--visible');
   footer.classList.remove('footer--visible');
   body.classList.remove('page--disabled');
+  cartBtn.classList.add('header__cart--visible');
 };
 
 const closeSearch = function () {
