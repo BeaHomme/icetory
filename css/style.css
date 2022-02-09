@@ -330,6 +330,7 @@ p {
   margin-left: 10px;
   font-size: 22px;
   line-height: 28px;
+  white-space: nowrap;
 }
 
 .hero {
