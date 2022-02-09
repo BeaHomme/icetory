@@ -1772,6 +1772,8 @@ body {
     left: 25px;
     right: 0;
     margin-left: 0;
+  }
+  .header__cart--filled {
     padding: 12px 10px;
     padding-left: 37px;
     display: -webkit-box;
@@ -1787,6 +1789,14 @@ body {
     font-size: 15px;
     color: #fff;
     text-align: right;
+  }
+  .header__cart-name,
+  .header__cart-amount {
+    display: none;
+  }
+  .header__cart--filled .header__cart-name,
+  .header__cart--filled .header__cart-amount {
+    display: block;
   }
   .hero__title {
     font-size: 54px;
