@@ -285,10 +285,20 @@ p {
   background-position: 5px center;
 }
 
+.header__cart-name {
+  display: none;
+}
+
 .header__cart--visible {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .header__cart-amount {
@@ -1778,12 +1788,6 @@ body {
   .header__cart--filled {
     padding: 12px 10px;
     padding-left: 37px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     width: calc(100% - 50px);
     font-size: 15px;
     color: #fff;

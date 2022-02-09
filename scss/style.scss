@@ -156,8 +156,13 @@ p {
   background-color: $light-blue;
   background-position: 5px center;
 }
+.header__cart-name {
+  display: none;
+}
 .header__cart--visible {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .header__cart-amount {
   font-size: 15px;
