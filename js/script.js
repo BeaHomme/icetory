@@ -9,6 +9,8 @@ const headerNav = document.querySelector('.header__nav');
 const footer = document.querySelector('.footer');
 const overlay = document.querySelector('.overlay');
 const navLink = document.querySelectorAll('.header__link');
+const searchInput = document.querySelector('.header__input');
+const searchAnswer = document.querySelector('.search');
 
 const swiperStories = new Swiper('.stories__swiper', {
   slidesPerView: 'auto',
@@ -46,6 +48,14 @@ const openCart = function () {
   closeBtn.addEventListener('click', closeCart);
 };
 
+const closeMenu = function () {
+  toggleBtn.classList.remove('header__btn-mobile--active');
+  overlay.classList.remove('overlay--active');
+  headerNav.classList.remove('header__nav--visible');
+  footer.classList.remove('footer--visible');
+  body.classList.remove('page--disabled');
+};
+
 cartBtn.addEventListener('click', openCart);
 
 toggleBtn.addEventListener('click', function () {
@@ -55,18 +65,27 @@ toggleBtn.addEventListener('click', function () {
   headerNav.classList.toggle('header__nav--visible');
   footer.classList.toggle('footer--visible');
   body.classList.toggle('page--disabled');
+  navLink.forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+  overlay.addEventListener('click', closeMenu);
 });
 
-const closeMenu = function () {
-  toggleBtn.classList.remove('header__btn-mobile--active');
-  overlay.classList.remove('overlay--active');
-  headerNav.classList.remove('header__nav--visible');
-  footer.classList.remove('footer--visible');
-  body.classList.remove('page--disabled');
-};
-
-navLink.forEach((link) => {
-  link.addEventListener('click', closeMenu);
+searchInput.addEventListener('keyup', function (e) {
+  console.log(searchInput.value);
+  const closeSearch = function () {
+    searchAnswer.classList.remove('search--visible');
+    overlay.classList.remove('overlay--active');
+  };
+  if (searchInput.value.length >= 2) {
+    searchAnswer.classList.add('search--visible');
+    overlay.classList.add('overlay--active');
+  } else {
+    closeSearch();
+  }
+  overlay.addEventListener('click', function () {
+    closeSearch();
+    searchInput.value = '';
+    searchInput.blur();
+  });
 });
-
-overlay.addEventListener('click', closeMenu);
