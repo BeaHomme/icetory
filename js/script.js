@@ -35,10 +35,12 @@ const openCart = function () {
   cart.classList.add('cart--visible');
   overlay.classList.add('overlay--active');
   body.classList.add('page--disabled');
+  cartBtn.classList.remove('header__cart--visible');
   const closeCart = function () {
     cart.classList.remove('cart--visible');
     overlay.classList.remove('overlay--active');
     body.classList.remove('page--disabled');
+    cartBtn.classList.add('header__cart--visible');
   };
   overlay.addEventListener('click', closeCart);
   closeBtn.addEventListener('click', closeCart);
@@ -47,6 +49,7 @@ const openCart = function () {
 cartBtn.addEventListener('click', openCart);
 
 toggleBtn.addEventListener('click', function () {
+  cartBtn.classList.toggle('header__cart--visible');
   toggleBtn.classList.toggle('header__btn-mobile--active');
   overlay.classList.toggle('overlay--active');
   headerNav.classList.toggle('header__nav--visible');

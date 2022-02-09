@@ -257,6 +257,7 @@ p {
 }
 
 .header__cart {
+  display: none;
   margin-left: 20px;
   width: 40px;
   height: 40px;
@@ -266,11 +267,14 @@ p {
   cursor: pointer;
   -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
-  z-index: -1;
 }
 
 .header__cart:hover {
   background: #6cbab8 url("/images/icons/cart-icon.svg") no-repeat 50% 50%;
+}
+
+.header__cart--visible {
+  display: block;
 }
 
 .header__btn-mobile {
@@ -1695,7 +1699,6 @@ body {
   }
   .header__cart {
     position: fixed;
-    display: block;
     bottom: 25px;
     left: 0;
     right: 0;
