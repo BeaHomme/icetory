@@ -38,6 +38,9 @@ const openCart = function () {
   overlay.classList.add('overlay--active');
   body.classList.add('page--disabled');
   cartBtn.classList.remove('header__cart--visible');
+  searchAnswer.classList.remove('search--visible');
+  searchInput.value = '';
+  searchInput.blur();
   const closeCart = function () {
     cart.classList.remove('cart--visible');
     overlay.classList.remove('overlay--active');
@@ -56,6 +59,11 @@ const closeMenu = function () {
   body.classList.remove('page--disabled');
 };
 
+const closeSearch = function () {
+  searchAnswer.classList.remove('search--visible');
+  overlay.classList.remove('overlay--active');
+};
+
 cartBtn.addEventListener('click', openCart);
 
 toggleBtn.addEventListener('click', function () {
@@ -72,10 +80,6 @@ toggleBtn.addEventListener('click', function () {
 });
 
 searchInput.addEventListener('keyup', function () {
-  const closeSearch = function () {
-    searchAnswer.classList.remove('search--visible');
-    overlay.classList.remove('overlay--active');
-  };
   if (searchInput.value.length >= 2) {
     searchAnswer.classList.add('search--visible');
     overlay.classList.add('overlay--active');
