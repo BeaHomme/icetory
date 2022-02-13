@@ -1491,6 +1491,10 @@ p {
   cursor: pointer;
 }
 
+.order {
+  display: none;
+}
+
 body {
   font-family: 'ProbaPro-Regular', sans-serif;
   font-style: normal;
