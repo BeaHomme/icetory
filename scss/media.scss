@@ -444,6 +444,38 @@
   .cart__title {
     font-size: 30px;
   }
+  .order {
+    padding: 28px;
+    width: 100%;
+  }
+  .personal__form {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .personal__input {
+    width: 100%;
+  }
+  .date__calendar {
+    padding: 10px 9px;
+    width: calc(50% - 10px);
+  }
+  .date__intervals,
+  .pay__methods {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .date__label,
+  .pay__label {
+    width: 100%;
+  }
+  .order__title,
+  .order__amount-price {
+    font-size: 25px;
+  }
+  .order__btn {
+    width: 220px;
+    height: 40px;
+    font-size: 15px;
+  }
 }
 @media (max-width: 768px) {
   .header {
@@ -675,6 +707,19 @@
   .hero__text {
     max-width: 256px;
   }
+  .address__form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .address__street,
+  .address__comment {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .date__label,
+  .pay__label {
+    padding: 11px 5px;
+    font-size: 16px;
+  }
 }
 @media (max-width: 330px) {
   .hero__title {
@@ -699,5 +744,21 @@
     right: -15px;
     width: 70px;
     height: 70px;
+  }
+  .order {
+    padding: 20px;
+  }
+  .input {
+    padding: 11px 8px;
+    font-size: 15px;
+  }
+  .date__calendar {
+    width: 100%;
+    font-size: 15px;
+  }
+  .date__label,
+  .pay__label {
+    padding: 11px 5px;
+    font-size: 14px;
   }
 }

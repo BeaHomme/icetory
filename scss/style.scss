@@ -1093,7 +1093,7 @@ p {
 
 // Order card start
 .order {
-  // display: none;
+  display: block;
   position: absolute;
   top: 0;
   left: 50%;
@@ -1109,7 +1109,7 @@ p {
   position: relative;
 }
 .order__title {
-  @extend %probapro-bold;
+  @extend %futurapt-bold;
   font-size: 30px;
   line-height: 1;
   color: $dark-blue;
@@ -1195,9 +1195,9 @@ p {
 }
 .date__intervals,
 .pay__methods {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px 20px;
   margin-top: 15px;
 }
 .date__input,
@@ -1228,9 +1228,6 @@ p {
 }
 .pay__methods {
   justify-content: flex-start;
-}
-.pay__label {
-  margin-right: 20px;
 }
 .order__bottom {
   margin-top: 40px;
@@ -1276,6 +1273,56 @@ p {
   cursor: pointer;
 }
 .order__btn:hover {
+  background: $light-blue;
+}
+.success {
+  display: none;
+  padding: 100px 40px 40px;
+  text-align: center;
+}
+.success__title {
+  @extend %futurapt-bold;
+  font-size: 48px;
+  line-height: 1.3;
+  color: $dark-blue;
+}
+.success__text {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 619px;
+  max-width: 100%;
+  font-size: 18px;
+  line-height: 1;
+}
+.success__thanks {
+  margin-top: 88px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 372px;
+  max-width: 100%;
+  @extend %probapro-bold;
+  font-size: 30px;
+  line-height: 1.26;
+  color: $light-blue;
+}
+.success__back-btn {
+  display: block;
+  margin-top: 88px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 19px;
+  width: 370px;
+  max-width: 100%;
+  height: 60px;
+  background: $dark-blue;
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+}
+.success__back-btn:hover {
   background: $light-blue;
 }
 // Order card end

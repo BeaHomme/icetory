@@ -64,16 +64,16 @@ body {
   font-weight: 500;
 }
 
-.header__list, .search__item-price, .stories__title, .process__text-title, .tabs__name, .feedback__author-name, .form__title, .footer__links, .cart__price, .cart__input, .cart__amount-number, .text__title, .card__price, .order__title, .personal__title,
+.header__list, .search__item-price, .stories__title, .process__text-title, .tabs__name, .feedback__author-name, .form__title, .footer__links, .cart__price, .cart__input, .cart__amount-number, .text__title, .card__price, .personal__title,
 .address__title,
 .date__title,
-.pay__title, .order__amount-price {
+.pay__title, .order__amount-price, .success__thanks {
   font-family: 'ProbaPro-Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
 }
 
-.title, .hero__title, .process__number, .cart__title, .card__title {
+.title, .hero__title, .process__number, .cart__title, .card__title, .order__title, .success__title {
   font-family: 'FuturaPT-Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -1499,6 +1499,7 @@ p {
 }
 
 .order {
+  display: block;
   position: absolute;
   top: 0;
   left: 50%;
@@ -1634,15 +1635,11 @@ p {
 
 .date__intervals,
 .pay__methods {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 15px 20px;
   margin-top: 15px;
 }
 
@@ -1680,10 +1677,6 @@ p {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-}
-
-.pay__label {
-  margin-right: 20px;
 }
 
 .order__bottom {
@@ -1750,6 +1743,61 @@ p {
   background: #6cbab8;
 }
 
+.success {
+  display: none;
+  padding: 100px 40px 40px;
+  text-align: center;
+}
+
+.success__title {
+  font-size: 48px;
+  line-height: 1.3;
+  color: #008f99;
+}
+
+.success__text {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 619px;
+  max-width: 100%;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.success__thanks {
+  margin-top: 88px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 372px;
+  max-width: 100%;
+  font-size: 30px;
+  line-height: 1.26;
+  color: #6cbab8;
+}
+
+.success__back-btn {
+  display: block;
+  margin-top: 88px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 19px;
+  width: 370px;
+  max-width: 100%;
+  height: 60px;
+  background: #008f99;
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  text-transform: uppercase;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+
+.success__back-btn:hover {
+  background: #6cbab8;
+}
+
 body {
   font-family: 'ProbaPro-Regular', sans-serif;
   font-style: normal;
@@ -1788,16 +1836,16 @@ body {
   font-weight: 500;
 }
 
-.header__list, .search__item-price, .stories__title, .process__text-title, .tabs__name, .feedback__author-name, .form__title, .footer__links, .cart__price, .cart__input, .cart__amount-number, .text__title, .card__price, .order__title, .personal__title,
+.header__list, .search__item-price, .stories__title, .process__text-title, .tabs__name, .feedback__author-name, .form__title, .footer__links, .cart__price, .cart__input, .cart__amount-number, .text__title, .card__price, .personal__title,
 .address__title,
 .date__title,
-.pay__title, .order__amount-price {
+.pay__title, .order__amount-price, .success__thanks {
   font-family: 'ProbaPro-Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
 }
 
-.title, .hero__title, .process__number, .cart__title, .card__title {
+.title, .hero__title, .process__number, .cart__title, .card__title, .order__title, .success__title {
   font-family: 'FuturaPT-Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -2293,6 +2341,40 @@ body {
   .cart__title {
     font-size: 30px;
   }
+  .order {
+    padding: 28px;
+    width: 100%;
+  }
+  .personal__form {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .personal__input {
+    width: 100%;
+  }
+  .date__calendar {
+    padding: 10px 9px;
+    width: calc(50% - 10px);
+  }
+  .date__intervals,
+  .pay__methods {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .date__label,
+  .pay__label {
+    width: 100%;
+  }
+  .order__title,
+  .order__amount-price {
+    font-size: 25px;
+  }
+  .order__btn {
+    width: 220px;
+    height: 40px;
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2540,6 +2622,21 @@ body {
   .hero__text {
     max-width: 256px;
   }
+  .address__form {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .address__street,
+  .address__comment {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .date__label,
+  .pay__label {
+    padding: 11px 5px;
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 330px) {
@@ -2570,5 +2667,21 @@ body {
     right: -15px;
     width: 70px;
     height: 70px;
+  }
+  .order {
+    padding: 20px;
+  }
+  .input {
+    padding: 11px 8px;
+    font-size: 15px;
+  }
+  .date__calendar {
+    width: 100%;
+    font-size: 15px;
+  }
+  .date__label,
+  .pay__label {
+    padding: 11px 5px;
+    font-size: 14px;
   }
 }
