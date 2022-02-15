@@ -1093,7 +1093,7 @@ p {
 
 // Order card start
 .order {
-  display: block;
+  display: none;
   position: absolute;
   top: 0;
   left: 50%;
@@ -1276,7 +1276,7 @@ p {
   background: $light-blue;
 }
 .success {
-  display: none;
+  display: block;
   padding: 100px 40px 40px;
   text-align: center;
 }
