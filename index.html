@@ -290,7 +290,7 @@
       <button class="cart__close"></button>
       <div class="cart__empty-text">В корзине пока нет товаров</div>
     </div> -->
-    <div class="product-card card">
+    <div class="product-card card" style="display: none;">
       <div class="card__wrapper">
         <div class="card__top">
           <div class="card__title">Тар-тар из говядины</div>
@@ -299,6 +299,7 @@
         </div>
         <div class="card__info">
           <div class="card__images">
+            <div class="card__mobile-tag">Блюдо дня</div>
             <img
               class="card__image"
               src="/images/content/cart-1.jpg"
@@ -344,7 +345,12 @@
         </div>
         <div class="card__bottom">
           <div class="card__price">450 ₽</div>
-          <button class="card__btn">Добавить</button>
+          <!-- <button class="card__btn">Добавить</button> -->
+          <div class="tabs__number card__number">
+            <button class="tabs__remove card__remove"></button>
+            <input type="text" class="tabs__input card__input" value="1" />
+            <button class="tabs__add card__remove"></button>
+          </div>
         </div>
       </div>
     </div>
@@ -893,6 +899,18 @@
                 ></textarea>
                 <button class="form__btn">Отправить</button>
               </form>
+            </div>
+            <div
+              class="about__right about__right--send send"
+              style="display: none"
+            >
+              <img
+                src="/images/icons/check.svg"
+                alt="Спасибо, Ваше сообщение отправлено!"
+                class="send__img"
+              />
+              <div class="send__title">Спасибо, Ваше сообщение отправлено!</div>
+              <button class="form__btn send__btn">Написать еще</button>
             </div>
           </div>
         </div>
