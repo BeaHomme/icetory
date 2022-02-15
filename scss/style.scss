@@ -1092,8 +1092,191 @@ p {
 // Product card end
 
 // Order card start
-.order{
+.order {
+  // display: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 40px 60px;
+  width: 900px;
+  max-width: 100%;
+  height: auto;
+  background-color: #fff;
+  z-index: 20;
+}
+.order__wrapper {
+  position: relative;
+}
+.order__title {
+  @extend %probapro-bold;
+  font-size: 30px;
+  line-height: 1;
+  color: $dark-blue;
+}
+.order__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  background-image: url('/images/icons/close.svg');
+  border: none;
+  cursor: pointer;
+}
+.personal {
+  margin-top: 30px;
+}
+.personal__title,
+.address__title,
+.date__title,
+.pay__title {
+  @extend %probapro-bold;
+  font-size: 22px;
+  line-height: 1;
+  color: $light-blue;
+}
+.personal__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 87px;
+  margin-top: 20px;
+}
+.personal__input {
+  width: 313px;
+  max-width: 100%;
+}
+.input {
+  padding: 11px 20px;
+  background-color: #fff;
+  border: 1px solid $light-blue;
+  font-size: 18px;
+  line-height: 1;
+}
+.input::placeholder {
+  color: #9e9a9a;
+}
+.address {
+  margin-top: 40px;
+}
+.address__form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px 20px;
+  margin-top: 20px;
+}
+.address__input {
+  width: 100%;
+}
+.address__street,
+.address__comment {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+.date {
+  margin-top: 40px;
+}
+.date__form {
+  margin-top: 20px;
+}
+.date__calendar {
+  padding: 11px 19px;
+  width: 180px;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid $light-blue;
+  color: #9e9a9a;
+  font-size: 18px;
+  line-height: 1;
+}
+.date__calendar::-webkit-calendar-picker-indicator {
+  background-image: url('/images/icons/calendar.svg');
+}
+.date__intervals,
+.pay__methods {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.date__input,
+.pay__input {
   display: none;
+}
+.date__label,
+.pay__label {
+  display: block;
+  padding: 11px 12px;
+  width: 180px;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid $light-blue;
+  color: #9e9a9a;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+}
+.date__input:checked + .date__label,
+.pay__input:checked + .pay__label {
+  background-color: $dark-blue;
+  color: #fff;
+}
+.pay {
+  margin-top: 40px;
+}
+.pay__methods {
+  justify-content: flex-start;
+}
+.pay__label {
+  margin-right: 20px;
+}
+.order__bottom {
+  margin-top: 40px;
+}
+.order__summ {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.order__delivery,
+.order__amount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.order__summ,
+.order__delivery {
+  @extend %probapro-medium;
+  font-size: 22px;
+  line-height: 1;
+}
+.order__amount-price {
+  @extend %probapro-bold;
+  font-size: 30px;
+  line-height: 1;
+  color: $dark-blue;
+}
+.order__btn {
+  display: block;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 370px;
+  max-width: 100%;
+  height: 60px;
+  background: $dark-blue;
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+.order__btn:hover {
+  background: $light-blue;
 }
 // Order card end
 
