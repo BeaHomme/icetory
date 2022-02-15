@@ -715,8 +715,7 @@ p {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: auto;
-  width: 260px;
-  max-width: 100%;
+  width: 100%;
 }
 
 .tabs__input {
@@ -2551,6 +2550,13 @@ body {
   .tabs__price {
     padding: 11px;
     font-size: 18px;
+    height: 40px;
+  }
+  .tabs__remove,
+  .tabs__add {
+    width: 40px;
+    height: 40px;
+    background-size: 40%;
   }
   .instagram__items {
     margin-top: 30px;
