@@ -32,7 +32,7 @@ body {
   font-weight: 400;
 }
 
-.search__item-name, .process__text, .tabs__price, .feedback__text-title, .form__input::-webkit-input-placeholder,
+.search__item-name, .process__text, .tabs__price, .tabs__input, .feedback__text-title, .form__input::-webkit-input-placeholder,
 .form__textarea::-webkit-input-placeholder, .form__btn, .cart__name, .cart__amount-text, .order__summ,
 .order__delivery {
   font-family: 'ProbaPro-Medium', sans-serif;
@@ -40,7 +40,7 @@ body {
   font-weight: 500;
 }
 
-.search__item-name, .process__text, .tabs__price, .feedback__text-title, .form__input:-ms-input-placeholder,
+.search__item-name, .process__text, .tabs__price, .tabs__input, .feedback__text-title, .form__input:-ms-input-placeholder,
 .form__textarea:-ms-input-placeholder, .form__btn, .cart__name, .cart__amount-text, .order__summ,
 .order__delivery {
   font-family: 'ProbaPro-Medium', sans-serif;
@@ -48,7 +48,7 @@ body {
   font-weight: 500;
 }
 
-.search__item-name, .process__text, .tabs__price, .feedback__text-title, .form__input::-ms-input-placeholder,
+.search__item-name, .process__text, .tabs__price, .tabs__input, .feedback__text-title, .form__input::-ms-input-placeholder,
 .form__textarea::-ms-input-placeholder, .form__btn, .cart__name, .cart__amount-text, .order__summ,
 .order__delivery {
   font-family: 'ProbaPro-Medium', sans-serif;
@@ -56,7 +56,7 @@ body {
   font-weight: 500;
 }
 
-.search__item-name, .process__text, .tabs__price, .feedback__text-title, .form__input::placeholder,
+.search__item-name, .process__text, .tabs__price, .tabs__input, .feedback__text-title, .form__input::placeholder,
 .form__textarea::placeholder, .form__btn, .cart__name, .cart__amount-text, .order__summ,
 .order__delivery {
   font-family: 'ProbaPro-Medium', sans-serif;
@@ -73,7 +73,7 @@ body {
   font-weight: 700;
 }
 
-.title, .hero__title, .process__number, .cart__title, .card__title, .order__title, .success__title {
+.title, .hero__title, .process__number, .tabs__empty, .cart__title, .card__title, .order__title, .success__title {
   font-family: 'FuturaPT-Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -674,6 +674,7 @@ p {
   margin-top: auto;
   padding: 18px;
   width: 100%;
+  height: 55px;
   font-size: 22px;
   color: #fff;
   text-align: center;
@@ -701,6 +702,66 @@ p {
 
 .tabs__price--discount:hover {
   background-color: #ffa183;
+}
+
+.tabs__number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: auto;
+  width: 260px;
+  max-width: 100%;
+}
+
+.tabs__input {
+  max-width: 50px;
+  border: none;
+  font-size: 22px;
+  text-align: center;
+  outline: none;
+}
+
+.tabs__remove,
+.tabs__add {
+  width: 55px;
+  height: 55px;
+  background-color: #008f99;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.tabs__remove:hover,
+.tabs__add:hover {
+  background-color: #6cbab8;
+}
+
+.tabs__remove {
+  background-image: url("/images/icons/minus.svg");
+}
+
+.tabs__add {
+  background-image: url("/images/icons/plus.svg");
+}
+
+.tabs__empty {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 5;
+  margin-top: 170px;
+  margin-bottom: 80px;
+  font-size: 48px;
+  color: #008f99;
+  text-align: center;
 }
 
 .feedback__container {
@@ -1303,6 +1364,23 @@ p {
   opacity: 0.7;
 }
 
+.cart__empty-text {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-top: calc(50vh - 15%);
+  font-size: 30px;
+  color: #ff7a50;
+  text-align: center;
+}
+
+.cart__error {
+  margin-top: 30px;
+  font-size: 18px;
+  line-height: 1;
+  color: #ff7a50;
+}
+
 .card {
   display: none;
   position: fixed;
@@ -1499,7 +1577,6 @@ p {
 }
 
 .order {
-  display: none;
   position: absolute;
   top: 0;
   left: 50%;
@@ -1744,7 +1821,6 @@ p {
 }
 
 .success {
-  display: block;
   padding: 100px 40px 40px;
   text-align: center;
 }
@@ -1804,7 +1880,7 @@ body {
   font-weight: 400;
 }
 
-.search__item-name, .process__text, .tabs__price, .feedback__text-title, .form__input::-webkit-input-placeholder,
+.search__item-name, .process__text, .tabs__price, .tabs__input, .feedback__text-title, .form__input::-webkit-input-placeholder,
 .form__textarea::-webkit-input-placeholder, .form__btn, .cart__name, .cart__amount-text, .order__summ,
 .order__delivery {
   font-family: 'ProbaPro-Medium', sans-serif;
@@ -1812,7 +1888,7 @@ body {
   font-weight: 500;
 }
 
-.search__item-name, .process__text, .tabs__price, .feedback__text-title, .form__input:-ms-input-placeholder,
+.search__item-name, .process__text, .tabs__price, .tabs__input, .feedback__text-title, .form__input:-ms-input-placeholder,
 .form__textarea:-ms-input-placeholder, .form__btn, .cart__name, .cart__amount-text, .order__summ,
 .order__delivery {
   font-family: 'ProbaPro-Medium', sans-serif;
@@ -1820,7 +1896,7 @@ body {
   font-weight: 500;
 }
 
-.search__item-name, .process__text, .tabs__price, .feedback__text-title, .form__input::-ms-input-placeholder,
+.search__item-name, .process__text, .tabs__price, .tabs__input, .feedback__text-title, .form__input::-ms-input-placeholder,
 .form__textarea::-ms-input-placeholder, .form__btn, .cart__name, .cart__amount-text, .order__summ,
 .order__delivery {
   font-family: 'ProbaPro-Medium', sans-serif;
@@ -1828,7 +1904,7 @@ body {
   font-weight: 500;
 }
 
-.search__item-name, .process__text, .tabs__price, .feedback__text-title, .form__input::placeholder,
+.search__item-name, .process__text, .tabs__price, .tabs__input, .feedback__text-title, .form__input::placeholder,
 .form__textarea::placeholder, .form__btn, .cart__name, .cart__amount-text, .order__summ,
 .order__delivery {
   font-family: 'ProbaPro-Medium', sans-serif;
@@ -1845,7 +1921,7 @@ body {
   font-weight: 700;
 }
 
-.title, .hero__title, .process__number, .cart__title, .card__title, .order__title, .success__title {
+.title, .hero__title, .process__number, .tabs__empty, .cart__title, .card__title, .order__title, .success__title {
   font-family: 'FuturaPT-Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -2537,6 +2613,14 @@ body {
   .card__images {
     margin: 0 auto;
   }
+  .tabs__empty {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
 }
 
 @media (max-width: 568px) {
@@ -2643,6 +2727,10 @@ body {
     font-size: 15px;
     line-height: 1;
     padding: 12px;
+  }
+  .cart__error {
+    margin-top: 10px;
+    font-size: 15px;
   }
 }
 

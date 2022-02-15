@@ -462,6 +462,7 @@ p {
   margin-top: auto;
   padding: 18px;
   width: 100%;
+  height: 55px;
   @extend %probapro-medium;
   font-size: 22px;
   color: #fff;
@@ -485,6 +486,53 @@ p {
 }
 .tabs__price--discount:hover {
   background-color: lighten($orange, 10%);
+}
+.tabs__number {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  width: 260px;
+  max-width: 100%;
+}
+.tabs__input {
+  max-width: 50px;
+  border: none;
+  @extend %probapro-medium;
+  font-size: 22px;
+  text-align: center;
+  outline: none;
+}
+.tabs__remove,
+.tabs__add {
+  width: 55px;
+  height: 55px;
+  background-color: $dark-blue;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.tabs__remove:hover,
+.tabs__add:hover {
+  background-color: $light-blue;
+}
+.tabs__remove {
+  background-image: url('/images/icons/minus.svg');
+}
+.tabs__add {
+  background-image: url('/images/icons/plus.svg');
+}
+.tabs__empty {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  margin-top: 170px;
+  margin-bottom: 80px;
+  @extend %futurapt-bold;
+  font-size: 48px;
+  color: $dark-blue;
+  text-align: center;
 }
 // Menu end
 
@@ -939,6 +987,19 @@ p {
 .cart__close:hover {
   opacity: 0.7;
 }
+.cart__empty-text {
+  align-self: center;
+  margin-top: calc(50vh - 15%);
+  font-size: 30px;
+  color: $orange;
+  text-align: center;
+}
+.cart__error {
+  margin-top: 30px;
+  font-size: 18px;
+  line-height: 1;
+  color: $orange;
+}
 // Cart end
 
 // Product card start
@@ -1093,7 +1154,6 @@ p {
 
 // Order card start
 .order {
-  display: none;
   position: absolute;
   top: 0;
   left: 50%;
@@ -1276,7 +1336,6 @@ p {
   background: $light-blue;
 }
 .success {
-  display: block;
   padding: 100px 40px 40px;
   text-align: center;
 }

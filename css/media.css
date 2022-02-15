@@ -685,6 +685,14 @@
   .card__images {
     margin: 0 auto;
   }
+  .tabs__empty {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
 }
 
 @media (max-width: 568px) {
@@ -791,6 +799,10 @@
     font-size: 15px;
     line-height: 1;
     padding: 12px;
+  }
+  .cart__error {
+    margin-top: 10px;
+    font-size: 15px;
   }
 }
 
