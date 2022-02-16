@@ -8,37 +8,10 @@
               <button 
                 v-for="category in categories"
                 :key="category.id"
-                :class="['tabs__nav-item', { 'tabs__nav-item--active': activeCategory === category }]"
-                @click="activeCategory = category"
+                :class="['tabs__nav-item', { 'tabs__nav-item--active': activeCategoryId === category.id }]"
+                @click="activeCategoryId = category.id"
               >
-                {{ category.name }}
-              </button>
-
-              <button class="tabs__nav-item tabs__nav-item--active">
-                Скидки
-              </button>
-              <button class="tabs__nav-item" data-tab="snacks">
-                Салаты/закуски
-              </button>
-              <button class="tabs__nav-item" data-tab="starters">
-                Первые блюда
-              </button>
-              <button class="tabs__nav-item" data-tab="main">
-                Вторые блюда
-              </button>
-              <button class="tabs__nav-item" data-tab="desserts">
-                Десерты
-              </button>
-
-              <button class="tabs__nav-item" data-tab="pizza">Пицца</button>
-              <button class="tabs__nav-item" data-tab="combo">
-                Комбо-обеды
-              </button>
-              <button class="tabs__nav-item" data-tab="sets">
-                Гастроконструкторы
-              </button>
-              <button class="tabs__nav-item" data-tab="drinks">
-                Напитки
+                {{ category.title }}
               </button>
             </div>
           </div>
@@ -66,17 +39,6 @@
             </div>
 
             <div class="tabs__item">
-              <span class="tabs__tag">Блюдо дня</span>
-              <img
-                class="tabs__img"
-                src="@/assets/content/item-placeholder.svg"
-                alt=""
-              />
-              <div class="tabs__name">Салат Оливье</div>
-              <div class="tabs__descr">250г</div>
-              <button class="tabs__price">123 &#8381;</button>
-            </div>
-            <div class="tabs__item">
               <span class="tabs__tag">Обед</span>
               <img
                 class="tabs__img"
@@ -95,100 +57,6 @@
                 <input type="text" class="tabs__input" value="1" />
                 <button class="tabs__add"></button>
               </div>
-            </div>
-            <div class="tabs__item">
-              <span class="tabs__tag">Завтрак</span>
-              <img
-                class="tabs__img"
-                src="@/assets/content/menu-item-3.jpg"
-                alt=""
-              />
-              <div class="tabs__name">Салат Оливье</div>
-              <div class="tabs__descr">250г</div>
-              <button class="tabs__price tabs__price--discount">
-                123 &#8381;<span class="tabs__price--old">123 &#8381;</span>
-              </button>
-            </div>
-            <div class="tabs__item">
-              <span class="tabs__tag">Бестселлер</span>
-              <img
-                class="tabs__img"
-                src="@/assets/content/menu-item-4.jpg"
-                alt=""
-              />
-              <div class="tabs__name">Салат Оливье</div>
-              <div class="tabs__descr">250г</div>
-              <button class="tabs__price">123 &#8381;</button>
-            </div>
-            <div class="tabs__item">
-              <img
-                class="tabs__img"
-                src="@/assets/content/menu-item-5.jpg"
-                alt=""
-              />
-              <div class="tabs__name">Салат Оливье</div>
-              <div class="tabs__descr">250г</div>
-              <button class="tabs__price">123 &#8381;</button>
-            </div>
-            <div class="tabs__item">
-              <img
-                class="tabs__img"
-                src="@/assets/content/menu-item-6.jpg"
-                alt=""
-              />
-              <div class="tabs__name">Салат Оливье</div>
-              <div class="tabs__descr">250г</div>
-              <button class="tabs__price">123 &#8381;</button>
-            </div>
-            <div class="tabs__item">
-              <img
-                class="tabs__img"
-                src="@/assets/content/menu-item-7.jpg"
-                alt=""
-              />
-              <div class="tabs__name">Салат Оливье</div>
-              <div class="tabs__descr">250г</div>
-              <button class="tabs__price">123 &#8381;</button>
-            </div>
-            <div class="tabs__item">
-              <img
-                class="tabs__img"
-                src="@/assets/content/menu-item-8.jpg"
-                alt=""
-              />
-              <div class="tabs__name">Салат Оливье</div>
-              <div class="tabs__descr">250г</div>
-              <button class="tabs__price">123 &#8381;</button>
-            </div>
-            <div class="tabs__item">
-              <img
-                class="tabs__img"
-                src="@/assets/content/menu-item-9.jpg"
-                alt=""
-              />
-              <div class="tabs__name">Салат Оливье</div>
-              <div class="tabs__descr">250г</div>
-              <button class="tabs__price">123 &#8381;</button>
-            </div>
-            <div class="tabs__item">
-              <img
-                class="tabs__img"
-                src="@/assets/content/menu-item-10.jpg"
-                alt=""
-              />
-              <div class="tabs__name">Салат Оливье</div>
-              <div class="tabs__descr">250г</div>
-              <button class="tabs__price">123 &#8381;</button>
-            </div>
-            <div class="tabs__item">
-              <img
-                class="tabs__img"
-                src="@/assets/content/menu-item-11.jpg"
-                alt=""
-              />
-              <div class="tabs__name">Салат Оливье</div>
-              <div class="tabs__descr">250г</div>
-              <button class="tabs__price">123 &#8381;</button>
             </div>
           </div>
           <div class="tabs__content" data-tab="snacks">
@@ -210,16 +78,15 @@ export default {
   setup() {
     const placeholderImg = ref(placeholder);
 
-    let activeCategory = ref();
+    let activeCategoryId = ref();
     
     let categories = ref([]);
     const getCategories = () => {
       service.getCategories()
-        .then(items => {
-          console.log(items);
-          categories.value = items;
-          if (items.length) {
-            activeCategory = items[0];
+        .then(({ data }) => {
+          categories.value = data;
+          if (data.length) {
+            activeCategoryId.value = data[0].id;
           }
         });
     };
@@ -227,9 +94,8 @@ export default {
     let products = ref([]);
     const getProducts = () => {
       service.getProducts()
-        .then(items => {
-          console.log(items);
-          products.value = items;
+        .then(({ data }) => {
+          products.value = data;
         });
     };
 
@@ -240,7 +106,7 @@ export default {
       categories,
       products,
       placeholderImg,
-      activeCategory,
+      activeCategoryId,
     };
   }
 }
