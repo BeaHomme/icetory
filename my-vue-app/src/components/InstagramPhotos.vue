@@ -1,0 +1,49 @@
+<template>
+<section class="instagram">
+      <div class="container">
+        <div class="instagram__title title">Мы в инстаграме</div>
+        <div class="instagram__items">
+          <img
+            class="instagram__img"
+            src="@/assets/content/instagram-1.jpg"
+            alt=""
+          />
+          <img
+            class="instagram__img"
+            src="@/assets/content/instagram-2.jpg"
+            alt=""
+          />
+          <img
+            class="instagram__img"
+            src="@/assets/content/instagram-3.jpg"
+            alt=""
+          />
+          <img
+            class="instagram__img"
+            src="@/assets/content/instagram-4.jpg"
+            alt=""
+          />
+          <img
+            class="instagram__img"
+            src="@/assets/content/instagram-5.jpg"
+            alt=""
+          />
+          <img
+            class="instagram__img"
+            src="@/assets/content/instagram-6.jpg"
+            alt=""
+          />
+          <img
+            class="instagram__img"
+            src="@/assets/content/instagram-7.jpg"
+            alt=""
+          />
+          <img
+            class="instagram__img"
+            src="@/assets/content/instagram-8.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+</template>

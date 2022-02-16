@@ -1,0 +1,27 @@
+$black: #414042;
+$light-blue: #6cbab8;
+$dark-blue: #008f99;
+$orange: #ff7a50;
+$light-gray: #efefef;
+$dark-gray: #9e9a9a;
+
+%probapro-regular {
+  font-family: 'ProbaPro-Regular', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+%probapro-medium {
+  font-family: 'ProbaPro-Medium', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+%probapro-bold {
+  font-family: 'ProbaPro-Bold', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+%futurapt-bold {
+  font-family: 'FuturaPT-Bold', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
