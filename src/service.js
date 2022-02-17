@@ -20,7 +20,7 @@ export default {
   },
 
   sendFeedback(params) {
-    return axios.post(`${URL}/feedback`, params);
+    return axios.post(`${URL}/feedback/`, params);
   },
 
   createOrder(params) {

@@ -2,13 +2,16 @@
   <shopping-cart
     v-model="cartVisible"
   />
+
+  <product-card />
+
   <the-header></the-header>
   <main class="main">
     <the-hero></the-hero>
     <the-stories></the-stories>
     <the-process></the-process>
     <menu-list></menu-list>
-    <feed-back></feed-back>
+    <reviews-carousel />
     <!-- <instagram-photos></instagram-photos> -->
     <about-us></about-us>
   </main>
@@ -26,10 +29,11 @@ import ShoppingCart from './components/ShoppingCart.vue'
 import MenuList from './components/MenuList.vue'
 import InstagramPhotos from './components/InstagramPhotos.vue'
 import AboutUs from './components/AboutUs.vue'
-import FeedBack from './components/FeedBack.vue'
+import ReviewsCarousel from './components/ReviewsCarousel.vue'
 import TheProcess from './components/TheProcess.vue'
 import TheStories from './components/TheStories.vue'
 import TheHero from './components/TheHero.vue'
+import ProductCard from './components/ProductCard.vue';
 
 import { ref } from 'vue';
 
