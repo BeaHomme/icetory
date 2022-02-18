@@ -24,7 +24,7 @@ export default {
   },
 
   createOrder(params) {
-    return axios.post(`${URL}/orders`, params);
+    return axios.post(`${URL}/orders/`, params);
   },
 
 };

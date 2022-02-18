@@ -48,8 +48,8 @@
               title="Добавить в корзину"
               @click.stop="addToCart(product)"
             >
-              {{ product.discount_price }} &#8381;
-              <span v-if="product.discount_price" class="tabs__price--old">{{ product.price }} &#8381;</span>
+              {{ product.discount_price || product.price }} ₽
+              <span v-if="product.discount_price" class="tabs__price--old">{{ product.price }} ₽</span>
             </button>
 
           </div>

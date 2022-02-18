@@ -38,6 +38,9 @@ p {
   margin: 0;
   padding: 0;
 }
+.overflow--hidden {
+  overflow: hidden !important;
+}
 .container {
   max-width: 1230px;
   padding: 0 25px;
@@ -909,6 +912,7 @@ p {
   align-items: center;
   justify-content: space-between;
   width: 148px;
+  flex-shrink: 0;
 }
 .cart__price {
   margin-top: 24px;
@@ -1192,16 +1196,24 @@ p {
 // Product card end
 
 // Order card start
+.order__modal {
+  position: fixed;
+  max-height: 100vh;
+  max-width: 100vw;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
 .order {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   padding: 40px 60px;
   width: 900px;
-  max-width: 100%;
-  height: auto;
+  height: 100%;
   background-color: #fff;
+  overflow-y: auto;
   z-index: 20;
 }
 .order__wrapper {
@@ -1419,6 +1431,7 @@ p {
   line-height: 1;
   text-transform: uppercase;
   transition: background 0.3s ease;
+  cursor: pointer;
 }
 .success__back-btn:hover {
   background: $light-blue;

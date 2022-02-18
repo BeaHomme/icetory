@@ -6,6 +6,7 @@ export default defineStore('cart', {
     products: [],
     openedProduct: {},
     cartProducts: [],
+    
     cartVisible: false,
     createOrder: false,
   }),
