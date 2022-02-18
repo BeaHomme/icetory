@@ -38,7 +38,7 @@
 
 <script>
 import { ref, onMounted } from 'vue';
-import Swiper from 'swiper';
+import Swiper, { Navigation } from 'swiper';
 
 import service from '@/service';
 
@@ -48,6 +48,7 @@ export default {
     service.getReviews().then(({ data }) => { reviews.value = data; });
 
     onMounted(() => {
+      Swiper.use([Navigation]);
       const swiperFeedback = new Swiper('.feedback__swiper', {
         slidesPerView: 1,
         slidePerGroup: 1,
@@ -56,7 +57,7 @@ export default {
         spaceBetween: 20,
         grabCursor: true,
         navigation: {
-          nextEl: '.feedback__next',
+          nextEl: document.querySelector('.feedback__next'),
           prevEl: '.feedback__prev',
         },
         pagination: {

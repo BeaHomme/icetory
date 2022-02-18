@@ -4,34 +4,13 @@
         <div class="stories__items stories__swiper">
           <div class="stories__wrapper swiper-wrapper">
             <div
-              class="stories__item stories__item--active swiper-slide"
-              style="background-image: url('src/assets/content/stories-1.svg')"
+              v-for="(slide, idx) in slides"
+              :key="idx"
+              :class="['stories__item', 'swiper-slide', { 'stories__item--active' : activeSlide === idx + 1 }]"
+              :style="{ backgroundImage: `url('src/assets/content/stories-${idx + 1}.svg'` }"
+              @click="activeSlide = idx + 1"
             >
-              <h4 class="stories__title">Инновационная заморозка</h4>
-            </div>
-            <div
-              class="stories__item swiper-slide"
-              style="background-image: url('src/assets/content/stories-2.svg')"
-            >
-              <h4 class="stories__title">Технология приготовления</h4>
-            </div>
-            <div
-              class="stories__item swiper-slide"
-              style="background-image: url('src/assets/content/stories-3.svg')"
-            >
-              <h4 class="stories__title">Готовое блюдо от шеф-повара</h4>
-            </div>
-            <div
-              class="stories__item swiper-slide"
-              style="background-image: url('src/assets/content/stories-4.svg')"
-            >
-              <h4 class="stories__title">Время</h4>
-            </div>
-            <div
-              class="stories__item swiper-slide"
-              style="background-image: url('src/assets/content/stories-5.svg')"
-            >
-              <h4 class="stories__title">Доставка и торговые точки</h4>
+              <h4 class="stories__title">{{ slide.title }}</h4>
             </div>
           </div>
         </div>
@@ -40,17 +19,39 @@
 </template>
 
 <script>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import Swiper from 'swiper';
+
+import service from '@/service';
 
 export default {
   setup() {
+    const slides = [
+      { title: 'Инновационная заморозка' },
+      { title: 'Технология приготовления' },
+      { title: 'Готовое блюдо от шеф-повара' },
+      { title: 'Время' },
+      { title: 'Доставка и торговые точки' },
+    ];
+    const activeSlide = ref();
+    const stories = ref([]);
+
+    service.getStories().then(({ data }) => {
+      stories.value = data;
+    });
+
     onMounted(() => {
       const swiperStories = new Swiper('.stories__swiper', {
         slidesPerView: 'auto',
         freeMode: true,
       });
     });
+
+    return {
+      slides,
+      activeSlide,
+      stories,
+    };
   },
 }
 </script>

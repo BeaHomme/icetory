@@ -50,8 +50,8 @@
   }
   .stories__item {
     flex: 0 0 230px;
-    width: 230px;
-    height: 230px;
+    min-width: 230px;
+    min-height: 230px;
     background-size: cover;
   }
   .stories__item + .stories__item {
@@ -680,8 +680,8 @@
   }
   .stories__item {
     flex: 0 0 100px;
-    width: 100px;
-    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
     border-radius: 10px;
   }
   .stories__title {

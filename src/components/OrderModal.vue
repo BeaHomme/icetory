@@ -1,7 +1,5 @@
 <template>
   <div v-if="store.createOrder" class="order__modal">
-    <div class="overlay overlay--active" @click="store.createOrder = false"></div>
-
     <form v-if="!success" class="order" @submit.prevent="submit">
       <div class="order__wrapper">
         <div class="order__title">Оформление заказа</div>
@@ -42,6 +40,7 @@
               type="text"
               class="address__input address__street input"
               placeholder="Улица, номер дома"
+              required
             />
             <input
               v-model="form.entrance"
@@ -56,6 +55,7 @@
               class="address__input input"
               placeholder="Кв/офис"
               inputmode="numeric"
+              required
             />
             <input
               v-model="form.floor"
@@ -63,6 +63,7 @@
               class="address__input input"
               placeholder="Этаж"
               inputmode="numeric"
+              required
             />
             <input
               v-model="form.intercom"
@@ -81,10 +82,11 @@
         <div class="order__date date">
           <div class="date__title">Дата и интервал доставки</div>
           <div class="date__form">
-            <input 
+            <datepicker
               v-model="form.day"
-              type="date" 
-              class="date__calendar" 
+              :locale="locale"
+              :lowerLimit="new Date()"
+              class="date__calendar"
             />
             <div class="date__intervals">
               <input
@@ -93,7 +95,6 @@
                 name="interval"
                 id="8-11"
                 class="date__input"
-                required
                 value="8-11"
               />
               <label for="8-11" class="date__label">8:00 – 11:00</label>
@@ -103,7 +104,6 @@
                 name="interval"
                 class="date__input"
                 id="11-14"
-                required
                 value="11-14"
               />
               <label for="11-14" class="date__label">11:00 – 14:00</label>
@@ -113,7 +113,6 @@
                 name="interval"
                 id="14-17"
                 class="date__input"
-                required
                 value="14-17"
               />
               <label for="14-17" class="date__label">14:00 – 17:00</label>
@@ -123,7 +122,6 @@
                 name="interval"
                 id="17-20"
                 class="date__input"
-                required
                 value="17-20"
               />
               <label for="17-20" class="date__label">17:00 – 20:00</label>
@@ -139,7 +137,6 @@
               name="payment_type"
               class="pay__input"
               id="card-online"
-              required
               value="card-online"
             />
             <label for="card-online" class="pay__label">Картой онлайн</label>
@@ -149,7 +146,6 @@
               name="payment_type"
               id="cash"
               class="pay__input"
-              required
               value="cash"
             />
             <label for="cash" class="pay__label">Наличными</label>
@@ -159,7 +155,6 @@
               name="payment_type"
               id="card-offline"
               class="pay__input"
-              required
               value="card-offline"
             />
             <label for="card-offline" class="pay__label">Картой курьеру</label>
@@ -204,36 +199,64 @@
 
 <script>
 import { ref, watch } from 'vue';
+import datepicker from 'vue3-datepicker';
+import ru from 'date-fns/locale/ru';
+import format from 'date-fns/format';
 import pinia from '@/store.js';
 
 import service from '@/service';
 
 export default {
+  components: {
+    datepicker,
+  },
   setup() {
     const store = pinia();
 
     const deliverySum = ref(99);
-    const form = ref({});
+    const form = ref({ day: new Date() });
     const success = ref(false);
 
     const submit = () => {
-      const params = {
-        cart: store.cartProducts.map(product => ({
-          product_id: product.id,
-          amount: product.count,
-        })),
-        ...form.value,
+      if (!form.value.delivery_time) {
+        alert('Выберите интервал доставки');
+      } else if (!form.value.payment_type) {
+        alert('Выберите способ оплаты');
+      } else {
+        const params = {
+          ...form.value,
+          cart: store.cartProducts.map(product => ({
+            product_id: product.id,
+            amount: product.count,
+          })),
+          day: format(form.value.day, 'yyyy-MM-dd'),
+        }
+        service.createOrder(params)
+        .then(() => {
+            success.value = true;
+            form.value = {};
+            store.cartProducts = [];
+          })
+        .catch((error) => {
+          if (error.response.status === 400) {
+            let message = '';
+            for(let key in error.response.data) {
+              message += `${error.response.data[key]} `;
+            }
+            alert(message);
+          } else {
+            alert(error.message);
+          }
+        });
       }
-      service.createOrder(params).then(() => {
-        success.value = true;
-        form.value = {};
-        store.cartProducts = [];
-      });
     };
 
-    watch(() => store.createOrder, () => {
-      success.value = false;
-    });
+    watch(
+      () => store.createOrder, 
+      () => {
+        success.value = false;
+      }
+    );
 
     return {
       store,
@@ -242,6 +265,7 @@ export default {
       submit,
       success,
       deliverySum,
+      locale: ru,
     };
   },
 }

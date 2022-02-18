@@ -1,5 +1,4 @@
 <template>
-  <div :class="['overlay', { 'overlay--active': store.cartVisible }]" @click="store.cartVisible = false"></div>
   <div :class="['shopping-cart', 'cart', { 'cart--visible': store.cartVisible }]">
     <div class="cart__title">Корзина</div>
     <button class="cart__close" @click="store.cartVisible = false"></button>

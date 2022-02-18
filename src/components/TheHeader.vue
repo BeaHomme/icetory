@@ -1,12 +1,5 @@
 <template>
   <header class="header">
-    <div 
-      v-if="searchValue.length > 1"
-      class="overlay overlay--active"
-      @click="searchValue = ''"
-      style="z-index: -1"
-    ></div>
-
     <div class="container">
       <div class="header__inner">
         <img
@@ -14,16 +7,28 @@
           alt="Icetory"
           class="header__logo"
         />
-        <nav class="header__nav">
+        <nav :class="['header__nav', { 'header__nav--visible': store.mobileMenu }]">
           <ul class="header__list">
             <li class="header__item">
-              <a href="#menu" class="header__link">Меню</a>
+              <a 
+                href="#menu" 
+                class="header__link" 
+                @click.prevent="goToSection('menu')"
+              >Меню</a>
             </li>
             <li class="header__item">
-              <a href="#process" class="header__link">Как это?</a>
+              <a 
+                href="#process" 
+                class="header__link" 
+                @click.prevent="goToSection('process')"
+              >Как это?</a>
             </li>
             <li class="header__item">
-              <a href="#about" class="header__link">О нас</a>
+              <a 
+                href="#about" 
+                class="header__link" 
+                @click.prevent="goToSection('about')"
+              >О нас</a>
             </li>
             <li class="header__item">
               <a
@@ -39,6 +44,7 @@
             <input v-model="searchValue" type="text" class="header__input" placeholder="Поиск" />
           </form>
           <div v-show="searchValue.length > 1" class="search search--visible">
+            <div v-if="!searchProducts.length">Не найдено подходящего блюда</div>
             <div 
               v-for="product in searchProducts"
               :key="product.id"
@@ -62,7 +68,10 @@
             <span class="header__cart-amount">{{ store.totalSum }} ₽</span>
           </button>
         </div>
-        <div class="header__btn-mobile">
+        <div 
+          :class="['header__btn-mobile', { 'header__btn-mobile--active': store.mobileMenu }]" 
+          @click="toggleMobileMenu"
+        >
           <div class="header__line"></div>
           <div class="header__line"></div>
           <div class="header__line"></div>
@@ -73,7 +82,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import pinia from '@/store.js';
 
 export default {
@@ -89,9 +98,29 @@ export default {
       return [];
     });
 
+    watch(
+      () => searchValue.value,
+      (val) => {
+        store.haveSearchValue = Boolean(val && val.length > 1);
+      },
+    );
+
     const openProduct = (product) => {
       store.openedProduct = product;
       searchValue.value = '';
+    };
+
+    const toggleMobileMenu = () => {
+      if (store.mobileMenu) {
+        store.mobileMenu = false;
+      } else {
+        store.mobileMenu = true;
+      }
+    };
+
+    const goToSection = (section) => {
+      store.mobileMenu = false;
+      document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
     };
 
     return {
@@ -99,6 +128,8 @@ export default {
       searchValue,
       searchProducts,
       openProduct,
+      toggleMobileMenu,
+      goToSection,
     };
   },
 }
