@@ -7,6 +7,7 @@ export default defineStore('cart', {
     openedProduct: {},
     cartProducts: [],
     cartVisible: false,
+    createOrder: false,
   }),
   getters: {
     reducedProducts(state) {

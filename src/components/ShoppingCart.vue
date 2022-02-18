@@ -31,7 +31,7 @@
       <div class="cart__error" style="display: none">
         Возникла ошибка, повторите позже
       </div>
-      <button class="cart__btn">Оформить</button>
+      <button class="cart__btn" @click="openOrderModal()">Оформить</button>
     </div>
   </div>
 </template>
@@ -45,17 +45,18 @@ export default {
     const addToCart = store.addProduct;
     const deleteFromCart = store.deleteProducts;
 
+    const openOrderModal = () => {
+      store.createOrder = true;
+      store.cartVisible = false;
+    };
+
     return {
       store,
       addToCart,
       deleteFromCart,
+
+      openOrderModal,
     };
-  },
-  props: {
-    value: {
-      type: Boolean,
-      required: true,
-    },
   },
 }
 </script>

@@ -38,3 +38,19 @@
       </div>
     </section>
 </template>
+
+<script>
+import { onMounted } from 'vue';
+import Swiper from 'swiper';
+
+export default {
+  setup() {
+    onMounted(() => {
+      const swiperStories = new Swiper('.stories__swiper', {
+        slidesPerView: 'auto',
+        freeMode: true,
+      });
+    });
+  },
+}
+</script>

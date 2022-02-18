@@ -1,7 +1,6 @@
 <template>
-  <shopping-cart
-    v-model="cartVisible"
-  />
+  <shopping-cart />
+  <order-modal></order-modal>
 
   <product-card />
 
@@ -26,6 +25,7 @@
 import TheHeader from './components/TheHeader.vue'
 import TheFooter from './components/TheFooter.vue'
 import ShoppingCart from './components/ShoppingCart.vue'
+import OrderModal from './components/OrderModal.vue'
 import MenuList from './components/MenuList.vue'
 import InstagramPhotos from './components/InstagramPhotos.vue'
 import AboutUs from './components/AboutUs.vue'

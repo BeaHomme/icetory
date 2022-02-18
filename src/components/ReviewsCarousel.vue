@@ -37,13 +37,34 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import Swiper from 'swiper';
+
 import service from '@/service';
 
 export default {
   setup() {
     let reviews = ref([]);
     service.getReviews().then(({ data }) => { reviews.value = data; });
+
+    onMounted(() => {
+      const swiperFeedback = new Swiper('.feedback__swiper', {
+        slidesPerView: 1,
+        slidePerGroup: 1,
+        centeredSlides: true,
+        initialSlide: 1,
+        spaceBetween: 20,
+        grabCursor: true,
+        navigation: {
+          nextEl: '.feedback__next',
+          prevEl: '.feedback__prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    });
  
     return {
       reviews,
