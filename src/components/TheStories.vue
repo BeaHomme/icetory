@@ -1,4 +1,21 @@
 <template>
+  <!-- 
+  <stories
+    v-if="storyItems[0].slides?.length"
+    :autoplay="false"   
+    :duration="3000"
+    :stories="storyItems"
+    @ended="activeSlide = null"
+    ref="stories_component"
+  >
+    <template v-slot:slide="{ story, slide }">
+      <div class="slide" style="color: white">
+        {{ slide.url }}
+      </div>
+    </template>
+  </stories>
+  -->
+
   <section class="stories">
       <div class="container">
         <div class="stories__items stories__swiper">
@@ -19,12 +36,16 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import Swiper from 'swiper';
+import Stories from "vue3-insta-stories";
 
 import service from '@/service';
 
 export default {
+  components: {
+    Stories,
+  },
   setup() {
     const slides = [
       { title: 'Инновационная заморозка' },
@@ -47,11 +68,36 @@ export default {
       });
     });
 
+    const storyItems = computed(() => {
+      const items = stories.value.filter(story => story.predefined_id === activeSlide.value);
+      console.log();
+      return [{
+        slides: [...items, ...items],
+      }];
+    });
+    
     return {
       slides,
       activeSlide,
-      stories,
+      storyItems,
     };
   },
 }
 </script>
+
+<style scoped lang="scss">
+
+#stories_wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 15;
+  width: 100vw;
+  height: 100vh;
+}
+
+::v-deep #stories_slider {
+  background-color: rgb(73, 73, 73);
+}
+
+</style>
