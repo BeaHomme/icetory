@@ -24,7 +24,7 @@
               v-for="(slide, idx) in slides"
               :key="idx"
               :class="['stories__item', 'swiper-slide', { 'stories__item--active' : activeSlide === idx + 1 }]"
-              :style="{ backgroundImage: `url('src/assets/content/stories-${idx + 1}.svg'` }"
+              :style="{ backgroundImage: `url(${slide.image}` }"
               @click="activeSlide = idx + 1"
             >
               <h4 class="stories__title">{{ slide.title }}</h4>
@@ -42,17 +42,23 @@ import Stories from "vue3-insta-stories";
 
 import service from '@/service';
 
+import stories1 from '@/assets/content/stories-1.svg';
+import stories2 from '@/assets/content/stories-2.svg';
+import stories3 from '@/assets/content/stories-3.svg';
+import stories4 from '@/assets/content/stories-4.svg';
+import stories5 from '@/assets/content/stories-5.svg';
+
 export default {
   components: {
     Stories,
   },
   setup() {
     const slides = [
-      { title: 'Инновационная заморозка' },
-      { title: 'Технология приготовления' },
-      { title: 'Готовое блюдо от шеф-повара' },
-      { title: 'Время' },
-      { title: 'Доставка и торговые точки' },
+      { title: 'Инновационная заморозка', image: stories1 },
+      { title: 'Технология приготовления', image: stories2 },
+      { title: 'Готовое блюдо от шеф-повара', image: stories3 },
+      { title: 'Время', image: stories4 },
+      { title: 'Доставка и торговые точки', image: stories5 },
     ];
     const activeSlide = ref();
     const stories = ref([]);

@@ -11,7 +11,7 @@
             >
               <div class="feedback__top">
                 <img
-                  :src="review.photo"
+                  :src="review.photo || placeholderImg"
                   :alt="review.first_name"
                   class="feedback__img"
                 />
@@ -42,8 +42,12 @@ import Swiper, { Navigation } from 'swiper';
 
 import service from '@/service';
 
+import placeholder from '@/assets/content/feedback-placeholder.svg';
+
 export default {
   setup() {
+    const placeholderImg = ref(placeholder);
+
     let reviews = ref([]);
     service.getReviews().then(({ data }) => { reviews.value = data; });
 
@@ -68,6 +72,7 @@ export default {
     });
  
     return {
+      placeholderImg,
       reviews,
     };
   }
