@@ -48,6 +48,7 @@ export default {
     const openOrderModal = () => {
       store.createOrder = true;
       store.cartVisible = false;
+      store.mobileMenu = false;
     };
 
     return {

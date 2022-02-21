@@ -16,7 +16,8 @@
     "swiper": "^8.0.6",
     "vue": "^3.2.25",
     "vue3-datepicker": "^0.3.2",
-    "vue3-insta-stories": "^0.1.0"
+    "vue3-insta-stories": "^0.1.0",
+    "zuck.js": "^1.6.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.0",

@@ -232,7 +232,11 @@ export default {
           day: format(form.value.day, 'yyyy-MM-dd'),
         }
         service.createOrder(params)
-        .then(() => {
+          .then(({ data }) => {
+            if (form.value.payment_type === 'card-online') {
+              window.open(data.url, "pay", "width=600,height=700");
+            }
+
             success.value = true;
             form.value = {};
             store.cartProducts = [];

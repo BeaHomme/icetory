@@ -55,7 +55,7 @@
           </div>
         </div>
 
-        <div v-if="!filteredProducts.length" class="tabs__content">
+        <div v-if="!filteredProducts.length && !loading" class="tabs__content">
           <div class="tabs__empty">
             В данной категории отсутствуют товары
           </div>
@@ -81,9 +81,10 @@ export default {
     const addToCart = store.addProduct;
     const deleteFromCart = store.deleteProducts;
 
-    let activeCategoryId = ref();
+    const activeCategoryId = ref();
+    const loading = ref(true);
     
-    let categories = ref([]);
+    const categories = ref([]);
     const reducedCategories = ref({});
     const getCategories = () => {
       service.getCategories()
@@ -97,12 +98,15 @@ export default {
     };
     getCategories();
 
-    let products = ref([]);
+    const products = ref([]);
     const getProducts = () => {
       service.getProducts()
         .then(({ data }) => {
           products.value = data;
           store.products = data;
+        })
+        .finally(() => {
+          loading.value = false;
         });
     };
     getProducts();
@@ -118,6 +122,7 @@ export default {
       reducedCategories,
       filteredProducts,
       placeholderImg,
+      loading,
 
       activeCategoryId,
 

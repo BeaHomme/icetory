@@ -9,27 +9,26 @@
         />
         <nav :class="['header__nav', { 'header__nav--visible': store.mobileMenu }]">
           <ul class="header__list">
-            <li class="header__item">
+            <li v-if="isMenuPage" class="header__item">
               <a 
-                href="#menu" 
-                class="header__link" 
-                @click.prevent="goToSection('menu')"
-              >Меню</a>
+                href="#" 
+                class="header__link"
+                @click.prevent="goToMain()"
+              >Главная</a>
             </li>
-            <li class="header__item">
-              <a 
-                href="#process" 
-                class="header__link" 
-                @click.prevent="goToSection('process')"
-              >Как это?</a>
-            </li>
-            <li class="header__item">
-              <a 
-                href="#about" 
-                class="header__link" 
-                @click.prevent="goToSection('about')"
-              >О нас</a>
-            </li>
+            <template v-else>
+              <li 
+                class="header__item"
+                v-for="link in links"
+                :key="link.value"
+              >
+                <a 
+                  :href="`#${link.value}`" 
+                  class="header__link" 
+                  @click.prevent="goToSection(link.value)"
+                >{{ link.text }}</a>
+              </li>
+            </template>
             <li class="header__item">
               <a
                 href="tel:+78005553535"
@@ -82,12 +81,22 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, toRefs } from 'vue';
 import pinia from '@/store.js';
 
 export default {
-  setup() {
+  props: {
+    isMenuPage: Boolean,
+  },
+  emits: ['update:isMenuPage'],
+  setup(props, context) {
     const store = pinia();
+
+    const links = [
+      { value: 'menu', text: 'Меню' },
+      { value: 'process', text: 'Как это?' },
+      { value: 'about', text: 'О нас' },
+    ];
 
     const searchValue = ref('');
 
@@ -119,17 +128,25 @@ export default {
     };
 
     const goToSection = (section) => {
+      store.openedProduct = {};
       store.mobileMenu = false;
       document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
     };
 
+    const goToMain = () => {
+      window.history.pushState('main', 'Icetory', '/');
+      context.emit('update:isMenuPage', false);
+    };
+
     return {
       store,
+      links,
       searchValue,
       searchProducts,
       openProduct,
       toggleMobileMenu,
       goToSection,
+      goToMain,
     };
   },
 }
