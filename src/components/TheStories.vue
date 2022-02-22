@@ -1,47 +1,31 @@
 <template>
-  <!-- <video src="@/assets/video/video.mp4" width="480" height="270" autoplay></video> -->
-  <!-- 
-  <stories
-    v-if="storyItems[0].slides?.length"
-    :autoplay="true"   
-    :duration="5000"
-    :stories="storyItems"
-    @ended="activeSlide = null"
-    ref="stories_component"
-  >
-    <template v-slot:slide="{ story, slide }">
-      <div class="slide" style="color: white">
-        {{ slide.url }}
-      </div>
-    </template>
-  </stories>
-  -->
-
-  <div id="stories" v-show="storyItems.length"></div>
-
   <section class="stories">
-      <div class="container">
-        <div class="stories__items stories__swiper">
-          <div class="stories__wrapper swiper-wrapper">
-            <div
-              v-for="(slide, idx) in slides"
-              :key="idx"
-              :class="['stories__item', 'swiper-slide', { 'stories__item--active' : activeSlide === idx + 1 }]"
-              :style="{ backgroundImage: `url(${slide.image}` }"
-              @click="activeSlide = idx + 1"
-            >
-              <h4 class="stories__title">{{ slide.title }}</h4>
-            </div>
-          </div>
+    <div class="container">
+      <div class="stories__items stories__swiper">
+        <div id="stories" class="stories__wrapper swiper-wrapper">
+
         </div>
       </div>
-    </section>
+
+      <!-- <div class="stories__items stories__swiper2">
+        <div class="stories__wrapper swiper-wrapper">
+          <div
+            v-for="(slide, idx) in slides"
+            :key="idx"
+            :class="['stories__item', 'swiper-slide', { 'stories__item--active' : activeSlide === idx + 1 }]"
+            :style="{ backgroundImage: `url(${slide.image}` }"
+            @click="activeSlide = idx + 1"
+          >
+            <h4 class="stories__title">{{ slide.title }}</h4>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </section>
 </template>
 
 <script>
-import { ref, onMounted, computed, watch } from 'vue';
 import Swiper from 'swiper';
-import Stories from "vue3-insta-stories";
 import Zuck from 'zuck.js';
 
 import service from '@/service';
@@ -52,13 +36,8 @@ import stories3 from '@/assets/content/stories-3.svg';
 import stories4 from '@/assets/content/stories-4.svg';
 import stories5 from '@/assets/content/stories-5.svg';
 
-import video from '@/assets/video/video.mp4';
-
 
 export default {
-  components: {
-    Stories,
-  },
   setup() {
     const slides = [
       { title: 'Инновационная заморозка', image: stories1 },
@@ -67,92 +46,127 @@ export default {
       { title: 'Время', image: stories4 },
       { title: 'Доставка и торговые точки', image: stories5 },
     ];
-    const activeSlide = ref();
-    const stories = ref([]);
+
+    const reducedItems = {}; 
+
+    const markViewed = () => {
+      const seenItems = JSON.parse(localStorage.getItem('zuck-stories-seenItems'));
+      console.log(seenItems);
+      document.querySelectorAll('#stories .story').forEach((item) => {
+        const id = item.dataset.id;
+        if (!seenItems[id] && reducedItems[id / 10]) {
+          item.classList.add('stories__item--active');
+        } else {
+          item.classList.remove('stories__item--active');
+        }
+      });
+    };
+
+    const initStories = (stories) => {
+      new Zuck('stories', {
+        skin: 'snapgram',      // container class
+        avatars: true,         // shows user photo instead of last story item preview
+        list: false,           // displays a timeline instead of carousel
+        openEffect: true,      // enables effect when opening story
+        cubeEffect: false,     // enables the 3d cube effect when sliding story
+        autoFullScreen: false, // enables fullscreen on mobile browsers
+        backButton: true,      // adds a back button to close the story viewer
+        backNative: false,     // uses window history to enable back button on browsers/android
+        previousTap: true,     // use 1/3 of the screen to navigate to previous item when tap the story
+        localStorage: true,    // set true to save "seen" position. Element must have a id to save properly.
+        reactive: false,        // set true if you use frameworks like React to control the timeline (see react.sample.html)
+
+        stories: slides.map((story, index) => {
+          const idx = index + 1;
+          return {
+            // хак, без которого плагин моросил
+            id: idx * 10,
+            photo: story.image,
+            name: story.title,
+            items: stories[idx],
+          };
+        }),
+
+        callbacks: {
+          onOpen (storyId, callback) {
+            if (stories[storyId / 10]) {
+              callback();
+            }
+          },
+          onClose (storyId, callback) {
+            callback();
+            markViewed();
+          },
+        },
+
+        language: {
+          unmute: 'Коснитесь для включения звука',
+        },
+      });
+
+      document.querySelectorAll('#stories .story').forEach((item, index) => {
+        item.classList.add('swiper-slide');
+        item.classList.add('stories__item');
+        item.classList.remove('seen');
+        item.style.backgroundImage = `url(${item.dataset.photo})`;
+
+        const text = item.querySelector('.info').innerText;
+        item.querySelector('.info').remove();
+        item.querySelector('.item-link .item-preview').innerHTML = `<h4 class="stories__title">${text}</h4>`;
+      });
+    };
 
     service.getStories().then(({ data }) => {
-      stories.value = data;
-    });
+      data.forEach((item) => { 
+        const slideItem = {
+          id: item.url,
+          type: 'video',
+          length: item.duration,
+          src: item.url,
+        };
+        if (reducedItems[item.predefined_id]) {
+          reducedItems[item.predefined_id].push(slideItem);
+        } else {
+          reducedItems[item.predefined_id] = [slideItem];
+        }
+      });
 
-    const storyItems = computed(() => stories.value.filter(story => story.predefined_id === activeSlide.value));
-
-    onMounted(() => {
-      const swiperStories = new Swiper('.stories__swiper', {
+      initStories(reducedItems);
+      
+      new Swiper('.stories__swiper', {
         slidesPerView: 'auto',
         freeMode: true,
       });
 
-      // document.querySelector("video").addEventListener('loadedmetadata', function() {
-      //   console.log(document.querySelector("video").duration);
-      // });
+      markViewed();
     });
-
-    watch(
-      () => activeSlide.value,
-      () => {
-        console.log(storyItems.value);
-        new Zuck('stories', {
-          skin: 'snapgram',      // container class
-          avatars: true,         // shows user photo instead of last story item preview
-          list: false,           // displays a timeline instead of carousel
-          openEffect: true,      // enables effect when opening story
-          cubeEffect: false,     // enables the 3d cube effect when sliding story
-          autoFullScreen: false, // enables fullscreen on mobile browsers
-          backButton: true,      // adds a back button to close the story viewer
-          backNative: false,     // uses window history to enable back button on browsers/android
-          previousTap: true,     // use 1/3 of the screen to navigate to previous item when tap the story
-          localStorage: true,    // set true to save "seen" position. Element must have a id to save properly.
-          reactive: false,        // set true if you use frameworks like React to control the timeline (see react.sample.html)
-
-          stories: [{
-            id: 2,
-            seen: false,
-            items: [
-              {
-                id: '1',
-                type: 'stories1',
-                length: 30,
-                src: video,
-                preview: stories1,
-                seen: true,
-                customKey: "1",
-                anotherCustomKey: "2"
-              }
-            ]
-          }]
-        }); 
-      },
-    );
     
     return {
       slides,
-      activeSlide,
-      storyItems,
     };
   },
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 
-  #stories {
-    position: fixed;
-    left: 0;
-    top: -90px;
-    width: 100vw;
-    height: 100vh;
-    z-index: 17;
-    background-color: rgba(0, 0, 0, .95);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .head {
+    max-width: 99vw;
 
-    ::v-deep .story {
-      height: 100%;
-      .items, li, a, img {
-        height: 100%;
-      }
+    .left {
+      display: none !important;
     }
+  }
+
+</style>
+
+<style lang="scss" scoped>
+  @import 'https://cdnjs.cloudflare.com/ajax/libs/zuck.js/1.3.0/zuck.min.css';
+  @import 'https://cdnjs.cloudflare.com/ajax/libs/zuck.js/1.3.0/skins/snapgram.css';
+  @import 'https://cdnjs.cloudflare.com/ajax/libs/zuck.js/1.3.0/skins/facesnap.min.css';
+
+  .stories.carousel {
+    overflow: visible;
   }
 
 </style>

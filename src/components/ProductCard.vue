@@ -21,18 +21,20 @@
           >{{ store.reducedCategories[store.openedProduct.primary_category].title }}</div>
           <img
             class="card__image"
-            :src="store.openedProduct[activeImage]"
+            :src="store.openedProduct[activeImage] || placeholderImg"
             :alt="store.openedProduct.title"
             :key="activeImage"
           />
           <div class="card__thumbs">
             <img
+              v-if="store.openedProduct.main_picture"
               :src="store.openedProduct.main_picture"
               :alt="store.openedProduct.title"
               :class="['card__thumbs-img', { 'card__thumbs-img--active': activeImage === 'main_picture' }]"
               @click="activeImage = 'main_picture'"
             />
             <img
+              v-if="store.openedProduct.extra_picture"
               :src="store.openedProduct.extra_picture"
               :alt="store.openedProduct.title"
               :class="['card__thumbs-img', { 'card__thumbs-img--active': activeImage === 'extra_picture' }]"
@@ -87,19 +89,35 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import pinia from '@/store.js';
+
+import placeholder from '@/assets/content/item-placeholder.svg';
 
 export default {
   setup() {
+    const placeholderImg = ref(placeholder);
     const activeImage = ref('main_picture');
 
     const store = pinia();
     const addToCart = store.addProduct;
     const deleteFromCart = store.deleteProducts;
 
+    watch(
+      () => store.openedProduct,
+      (val) => {
+        console.log(val);
+        if (val.main_picture) {
+          activeImage.value = 'main_picture';
+        } else if (val.extra_picture) {
+          activeImage.value = 'extra_picture';
+        }
+      }
+    );
+
     return {
       activeImage,
+      placeholderImg,
 
       store,
       addToCart,

@@ -24,7 +24,7 @@
             @click="store.openedProduct = product"
           >
             <span v-if="product.primary_category" class="tabs__tag">
-              {{ reducedCategories[product.primary_category]?.title }}
+              {{ store.reducedCategories[product.primary_category]?.title }}
             </span>
             <img
               class="tabs__img"
@@ -85,12 +85,11 @@ export default {
     const loading = ref(true);
     
     const categories = ref([]);
-    const reducedCategories = ref({});
     const getCategories = () => {
       service.getCategories()
         .then(({ data }) => {
           categories.value = data;
-          reducedCategories.value = data.reduce((arr, cat) => ({ [cat.id]: cat, ...arr }), {});
+          store.categories = data;
           if (data.length) {
             activeCategoryId.value = data[0].id;
           }
@@ -119,7 +118,6 @@ export default {
 
     return {
       categories,
-      reducedCategories,
       filteredProducts,
       placeholderImg,
       loading,

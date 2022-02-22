@@ -275,6 +275,8 @@ p {
   @extend %probapro-bold;
   font-size: 30px;
   line-height: 1;
+  white-space: break-spaces;
+  text-align: left;
 }
 // Stories end
 
