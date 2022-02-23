@@ -51,7 +51,6 @@ export default {
 
     const markViewed = () => {
       const seenItems = JSON.parse(localStorage.getItem('zuck-stories-seenItems'));
-      console.log(seenItems);
       document.querySelectorAll('#stories .story').forEach((item) => {
         const id = item.dataset.id;
         if (!seenItems[id] && reducedItems[id / 10]) {
@@ -91,11 +90,14 @@ export default {
           onOpen (storyId, callback) {
             if (stories[storyId / 10]) {
               callback();
+              document.body.classList.add('page--disabled');
             }
           },
           onClose (storyId, callback) {
+            console.log(123);
             callback();
             markViewed();
+            document.body.classList.remove('page--disabled');
           },
         },
 
