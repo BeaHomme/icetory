@@ -9,7 +9,7 @@ const currentYear = ref(new Date().getFullYear());
     <div class="container">
       <div class="footer__inner">
         <ul class="footer__links">
-          <li class="footer__item">
+          <!-- <li class="footer__item">
             <a class="footer__link" href="#">Лицензионное соглашение</a>
           </li>
           <li class="footer__item">
@@ -20,12 +20,12 @@ const currentYear = ref(new Date().getFullYear());
           </li>
           <li class="footer__item">
             <a class="footer__link" href="#">Сертификаты</a>
-          </li>
+          </li> -->
           <li class="footer__item">Icetory©{{ currentYear }}</li>
         </ul>
         <ul class="footer__social">
           <li class="footer__social-item">
-            <a class="footer__social-link" href="#" target="_blank">
+            <a class="footer__social-link" href="https://www.instagram.com/ice.tory_/" target="_blank">
               <img
                 class="footer__social-img"
                 src="@/assets/icons/social-icon-1.svg"
@@ -33,7 +33,7 @@ const currentYear = ref(new Date().getFullYear());
               />
             </a>
           </li>
-          <li class="footer__social-item">
+          <!-- <li class="footer__social-item">
             <a class="footer__social-link" href="#" target="_blank">
               <img
                 class="footer__social-img"
@@ -41,7 +41,7 @@ const currentYear = ref(new Date().getFullYear());
                 alt="Facebook"
               />
             </a>
-          </li>
+          </li> -->
         </ul>
         <div class="footer__mobile">Icetory©{{ currentYear }}</div>
       </div>
