@@ -2,24 +2,8 @@
   <section class="stories">
     <div class="container">
       <div class="stories__items stories__swiper">
-        <div id="stories" class="stories__wrapper swiper-wrapper">
-
-        </div>
+        <div id="stories" class="stories__wrapper swiper-wrapper"></div>
       </div>
-
-      <!-- <div class="stories__items stories__swiper2">
-        <div class="stories__wrapper swiper-wrapper">
-          <div
-            v-for="(slide, idx) in slides"
-            :key="idx"
-            :class="['stories__item', 'swiper-slide', { 'stories__item--active' : activeSlide === idx + 1 }]"
-            :style="{ backgroundImage: `url(${slide.image}` }"
-            @click="activeSlide = idx + 1"
-          >
-            <h4 class="stories__title">{{ slide.title }}</h4>
-          </div>
-        </div>
-      </div> -->
     </div>
   </section>
 </template>
@@ -53,11 +37,24 @@ export default {
       const seenItems = JSON.parse(localStorage.getItem('zuck-stories-seenItems'));
       document.querySelectorAll('#stories .story').forEach((item) => {
         const id = item.dataset.id;
-        if (!seenItems[id] && reducedItems[id / 10]) {
+        if (!seenItems?.[id] && reducedItems[id / 10]) {
           item.classList.add('stories__item--active');
         } else {
           item.classList.remove('stories__item--active');
         }
+      });
+    };
+
+    const setDesignClassesAndContent = () => {
+      document.querySelectorAll('#stories .story').forEach(item => {
+        item.classList.add('swiper-slide');
+        item.classList.add('stories__item');
+        item.classList.remove('seen');
+
+        const text = item.querySelector('.info').innerText;
+        item.querySelector('.info').style.display = 'none';;
+        item.querySelector('.item-link .item-preview').innerHTML = `<h4 class="stories__title">${text}</h4>`;
+        item.style.backgroundImage = `url(${item.dataset.photo})`;
       });
     };
 
@@ -89,15 +86,16 @@ export default {
         callbacks: {
           onOpen (storyId, callback) {
             if (stories[storyId / 10]) {
+              window.scrollTo(0, 0);
               callback();
               document.body.classList.add('page--disabled');
             }
           },
           onClose (storyId, callback) {
-            console.log(123);
             callback();
             markViewed();
             document.body.classList.remove('page--disabled');
+            setDesignClassesAndContent();
           },
         },
 
@@ -106,16 +104,7 @@ export default {
         },
       });
 
-      document.querySelectorAll('#stories .story').forEach((item, index) => {
-        item.classList.add('swiper-slide');
-        item.classList.add('stories__item');
-        item.classList.remove('seen');
-        item.style.backgroundImage = `url(${item.dataset.photo})`;
-
-        const text = item.querySelector('.info').innerText;
-        item.querySelector('.info').remove();
-        item.querySelector('.item-link .item-preview').innerHTML = `<h4 class="stories__title">${text}</h4>`;
-      });
+      setDesignClassesAndContent();
     };
 
     service.getStories().then(({ data }) => {
@@ -142,10 +131,6 @@ export default {
 
       markViewed();
     });
-    
-    return {
-      slides,
-    };
   },
 }
 </script>
@@ -158,6 +143,18 @@ export default {
     .left {
       display: none !important;
     }
+
+    @media (max-width: 1024px) {
+      .right .close {
+        display: block !important;
+        margin-top: -15px;
+        margin-right: -10px;
+      }
+    }
+  }
+
+  #zuck-modal-content .story-viewer .slides .active {
+    height: 100vh;
   }
 
 </style>

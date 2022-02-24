@@ -262,7 +262,7 @@ p {
   cursor: pointer;
 }
 .stories__item + .stories__item {
-  margin-left: 23px;
+  margin-left: 23px!important;
 }
 .stories__item--active {
   box-shadow: 0px 0px 0px 3px #fff, 0px 0px 0px 10px $orange;
@@ -275,7 +275,7 @@ p {
   @extend %probapro-bold;
   font-size: 30px;
   line-height: 1;
-  white-space: break-spaces;
+  white-space: normal;
   text-align: left;
 }
 // Stories end

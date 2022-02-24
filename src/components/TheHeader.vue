@@ -134,6 +134,8 @@ export default {
     };
 
     const goToMain = () => {
+      store.openedProduct = {};
+      store.mobileMenu = false;
       window.history.pushState('main', 'Icetory', '/');
       context.emit('update:isMenuPage', false);
     };

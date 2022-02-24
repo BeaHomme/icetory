@@ -37,7 +37,6 @@ export default defineStore('cart', {
       }
     },
     deleteProducts(productId) {
-      console.log(productId);
       if (this.reducedProducts[productId].count === 1) {
         this.cartProducts = this.cartProducts.filter(item => { item.id !== productId });
       } else {

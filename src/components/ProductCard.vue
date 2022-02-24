@@ -106,7 +106,6 @@ export default {
     watch(
       () => store.openedProduct,
       (val) => {
-        console.log(val);
         if (val.main_picture) {
           activeImage.value = 'main_picture';
         } else if (val.extra_picture) {
