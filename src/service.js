@@ -27,4 +27,18 @@ export default {
     return axios.post(`${URL}/orders/`, params);
   },
 
+  getAddresses(data) {
+    return axios.post(
+      'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address', 
+      { query: data, count: 10 }, 
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: 'Token 1efd09c87e30282a85e01a9bbfb8aa3f1e29c3b1',
+        },
+      },
+    );
+  },
+
 };

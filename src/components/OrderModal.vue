@@ -35,13 +35,22 @@
         <div class="order__address address">
           <div class="address__title">Адрес доставки</div>
           <div class="address__form">
-            <input
+            <simple-typeahead 
+              v-model="form.address"
+              :items="addressItems"
+              :minInputLength="3"
+              placeholder="Улица, номер дома"
+              class="address__input address__street input__wrapper"
+              required
+              @onInput="fetchAddresses"
+            />
+            <!-- <input
               v-model="form.address"
               type="text"
               class="address__input address__street input"
               placeholder="Улица, номер дома"
               required
-            />
+            /> -->
             <input
               v-model="form.entrance"
               type="text"
@@ -82,12 +91,13 @@
         <div class="order__date date">
           <div class="date__title">Дата и интервал доставки</div>
           <div class="date__form">
-            <datepicker
-              v-model="form.day"
-              :locale="locale"
-              :lowerLimit="new Date()"
-              class="date__calendar"
-            />
+            <div class="date__calendar">
+              <datepicker
+                v-model="form.day"
+                :locale="locale"
+                :lowerLimit="new Date()"
+              />
+            </div>
             <div class="date__intervals">
               <input
                 v-model="form.delivery_time"
@@ -166,7 +176,7 @@
             <div class="order__name">Товары</div>
             <div class="order__price">{{ store.totalSum }} ₽</div>
           </div>
-          <div class="order__delivery">
+          <div class="order__delivery" v-if="deliverySum">
             <div class="order__name">Доставка</div>
             <div class="order__price">{{ deliverySum }} ₽</div>
           </div>
@@ -202,20 +212,31 @@ import { ref, watch } from 'vue';
 import datepicker from 'vue3-datepicker';
 import ru from 'date-fns/locale/ru';
 import format from 'date-fns/format';
-import pinia from '@/store.js';
+import SimpleTypeahead from 'vue3-simple-typeahead';
 
+import pinia from '@/store.js';
 import service from '@/service';
 
 export default {
   components: {
     datepicker,
+    SimpleTypeahead,
   },
   setup() {
     const store = pinia();
 
-    const deliverySum = ref(99);
+    const deliverySum = ref(0);
     const form = ref({ day: new Date() });
     const success = ref(false);
+    const addressItems = ref([]);
+
+    const fetchAddresses = ({ input }) => {
+      if (input.length > 2) {
+        service.getAddresses(input).then(({ data }) => {
+          addressItems.value = data.suggestions.map(address => address.value);
+        });
+      }
+    };
 
     const submit = () => {
       if (!form.value.delivery_time) {
@@ -270,7 +291,31 @@ export default {
       success,
       deliverySum,
       locale: ru,
+
+      fetchAddresses,
+      addressItems,
     };
   },
 }
 </script>
+
+<style scoped lang="scss">
+:deep(.simple-typeahead-list) {
+  background-color: #ffffff;
+  padding: 8px 16px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  width: 100%;
+  z-index: 20;
+
+  .simple-typeahead-list-item {
+    font-size: 16px;
+    line-height: 2;
+    cursor: pointer;
+
+    &:hover {
+      color: #008f99;
+    }
+  }
+}
+</style>

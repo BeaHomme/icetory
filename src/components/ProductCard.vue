@@ -6,7 +6,8 @@
         <span 
           v-if="store.reducedCategories[store.openedProduct.primary_category]" 
           class="card__tag"
-        >{{ store.reducedCategories[store.openedProduct.primary_category].title }}</span>
+        >{{ store.reducedCategories[store.openedProduct.primary_category].title }}
+        </span>
         <button 
           class="card__close-btn" 
           title="Закрыть окно"

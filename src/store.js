@@ -38,7 +38,7 @@ export default defineStore('cart', {
     },
     deleteProducts(productId) {
       if (this.reducedProducts[productId].count === 1) {
-        this.cartProducts = this.cartProducts.filter(item => { item.id !== productId });
+        this.cartProducts = this.cartProducts.filter(item => item.id !== productId);
       } else {
         const p = this.cartProducts.find(item => item.id === productId);
         p.count--;

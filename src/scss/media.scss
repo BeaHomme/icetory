@@ -390,6 +390,9 @@
   .table__data {
     padding-right: 10px;
   }
+  .tabs__number {
+    min-width: unset;
+  }
 }
 @media (max-height: 505px) {
   .footer--visible .footer__social {
@@ -413,6 +416,7 @@
   .feedback__swiper {
     margin-top: 30px;
     padding-top: 0;
+    padding-bottom: 30px;
     width: 100%;
     overflow-x: hidden;
   }
@@ -648,6 +652,21 @@
   }
   .card__title {
     font-size: 25px;
+  }
+  .cart__name {
+    font-size: 18px;
+  }
+  .cart__price {
+    font-size: 18px;
+  }
+  .cart__btn {
+    font-size: 20px;
+  }
+  .cart__amount-number {
+    font-size: 22px;
+  }
+  .cart__amount-text {
+    font-size: 20px;
   }
   .table {
     font-size: 10px;

@@ -11,7 +11,11 @@
         :key="product.id"
         class="cart__item"
       >
-        <img :src="product.main_picture" :alt="product.title" class="cart__img" />
+        <img 
+          :src="product.main_picture || placeholderImg" 
+          :alt="product.title" 
+          class="cart__img" 
+        />
         <div class="cart__info">
           <div class="cart__name">{{ product.title }}</div>
           <div class="cart__price">{{ product.discount_price || product.price }} ₽</div>
@@ -31,13 +35,15 @@
       <div class="cart__error" style="display: none">
         Возникла ошибка, повторите позже
       </div>
-      <button class="cart__btn" @click="openOrderModal()">Оформить</button>
+      <button class="cart__btn" @click="openOrderModal()" :disabled="!store.cartProducts.length">Оформить</button>
     </div>
   </div>
 </template>
 
 <script>
 import pinia from '@/store.js';
+
+import placeholderImg from '@/assets/content/item-placeholder.svg';
 
 export default {
   setup() {
@@ -46,12 +52,16 @@ export default {
     const deleteFromCart = store.deleteProducts;
 
     const openOrderModal = () => {
-      store.createOrder = true;
-      store.cartVisible = false;
-      store.mobileMenu = false;
+      if (store.cartProducts?.length) {
+        store.createOrder = true;
+        store.cartVisible = false;
+        store.mobileMenu = false;
+      }
     };
 
     return {
+      placeholderImg,
+
       store,
       addToCart,
       deleteFromCart,

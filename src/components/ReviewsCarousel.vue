@@ -38,7 +38,7 @@
 
 <script>
 import { ref, onMounted } from 'vue';
-import Swiper, { Navigation } from 'swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
 
 import service from '@/service';
 
@@ -53,7 +53,8 @@ export default {
 
     onMounted(() => {
       Swiper.use([Navigation]);
-      const swiperFeedback = new Swiper('.feedback__swiper', {
+      Swiper.use([Pagination]);
+      new Swiper('.feedback__swiper', {
         slidesPerView: 1,
         slidePerGroup: 1,
         centeredSlides: true,
