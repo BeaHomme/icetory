@@ -35,7 +35,7 @@ export default {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          Authorization: 'Token 1efd09c87e30282a85e01a9bbfb8aa3f1e29c3b1',
+          Authorization: 'Token c9a3b265faf2cb77e6c8daae35ee992f56cf4c59',
         },
       },
     );

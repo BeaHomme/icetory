@@ -42,7 +42,7 @@
               placeholder="Улица, номер дома"
               class="address__input address__street input__wrapper"
               required
-              @onInput="fetchAddresses"
+              @onInput="onTypingSearch"
             />
             <!-- <input
               v-model="form.address"
@@ -213,6 +213,7 @@ import datepicker from 'vue3-datepicker';
 import ru from 'date-fns/locale/ru';
 import format from 'date-fns/format';
 import SimpleTypeahead from 'vue3-simple-typeahead';
+import { debounce } from 'debounce';
 
 import pinia from '@/store.js';
 import service from '@/service';
@@ -237,6 +238,8 @@ export default {
         });
       }
     };
+
+    const onTypingSearch = debounce(fetchAddresses, 700);
 
     const submit = () => {
       if (!form.value.delivery_time) {
@@ -292,7 +295,7 @@ export default {
       deliverySum,
       locale: ru,
 
-      fetchAddresses,
+      onTypingSearch,
       addressItems,
     };
   },
