@@ -174,7 +174,8 @@
   }
   .header__nav--visible {
     position: fixed;
-    display: block;
+    display: flex;
+    flex-direction: column;
     top: 76px;
     left: 0;
     right: 0;
@@ -200,6 +201,13 @@
   }
   .header__link--phone {
     display: none;
+  }
+  .header__nav .footer {
+    display: block;
+    margin-top: auto;
+  }
+  .header__nav .footer .container {
+    padding-left: 0;
   }
   .footer--visible .footer__social {
     position: fixed;
@@ -416,7 +424,6 @@
   .feedback__swiper {
     margin-top: 30px;
     padding-top: 0;
-    padding-bottom: 30px;
     width: 100%;
     overflow-x: hidden;
   }
@@ -434,7 +441,7 @@
   .swiper-pagination-bullets.swiper-pagination-horizontal,
   .swiper-pagination-custom,
   .swiper-pagination-fraction {
-    bottom: -20px;
+    bottom: -30px!important;
   }
   .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
   .swiper-pagination-horizontal.swiper-pagination-bullets
@@ -445,7 +452,7 @@
     background-color: #def1ee;
   }
   .swiper-pagination-bullet-active {
-    background-color: $dark-blue;
+    background-color: $dark-blue !important;
   }
   .cart__title {
     font-size: 30px;
@@ -462,8 +469,10 @@
     width: 100%;
   }
   .date__calendar {
-    padding: 10px 9px;
     width: calc(50% - 10px);
+  }
+  .date__calendar input {
+    padding: 10px 9px;
   }
   .date__intervals,
   .pay__methods {
@@ -636,6 +645,12 @@
   .card__tag {
     display: none;
   }
+  .card__top {
+    position: absolute;
+    width: 100%;
+    padding: 10px 20px;
+    z-index: 2;
+  }
   .card__mobile-tag {
     position: absolute;
     display: block;
@@ -651,7 +666,17 @@
     right: 0;
   }
   .card__title {
+    display: none;
+  }
+  .card__title--mobile {
+    display: block;
     font-size: 25px;
+  }
+  .text__description {
+    width: 100%;
+  }
+  .cart__empty-text {
+    font-size: 22px;
   }
   .cart__name {
     font-size: 18px;
@@ -670,13 +695,24 @@
   }
   .table {
     font-size: 10px;
+    width: 100%;
   }
   .text {
     margin-left: 0;
     margin-top: 25px;
   }
+  .card__text {
+    margin-top: 15px;
+  }
   .card__images {
     margin: 0 auto;
+    width: 100%;
+  }
+  .card__image {
+    width: 100%;
+    max-height: 300px;
+    height: auto;
+    object-fit: cover;
   }
   .tabs__empty {
     grid-column-start: 1;
@@ -849,6 +885,8 @@
   }
   .date__calendar {
     width: 100%;
+  }
+  .date__calendar input {
     font-size: 15px;
   }
   .date__label,

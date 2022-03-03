@@ -43,6 +43,7 @@
             />
           </div>
         </div>
+        <div class="card__title--mobile">{{ store.openedProduct.title }}</div>
         <div class="card__text text">
           <div class="text__title">Состав</div>
           <div class="text__description">{{ store.openedProduct.description }}</div>

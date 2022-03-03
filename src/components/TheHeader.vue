@@ -37,6 +37,7 @@
               >
             </li>
           </ul>
+          <the-footer />
         </nav>
         <div class="header__right">
           <form class="header__search">
@@ -60,6 +61,7 @@
             </div>
           </div>
           <button
+            v-show="!(store.cartVisible || store.createOrder)"
             :class="['header__cart', 'header__cart--visible', { 'header__cart--filled': store.totalSum }]"
             @click="store.cartVisible = true"
           >
@@ -81,10 +83,15 @@
 </template>
 
 <script>
-import { ref, computed, watch, toRefs } from 'vue';
+import { ref, computed, watch } from 'vue';
 import pinia from '@/store.js';
 
+import TheFooter from './TheFooter.vue';
+
 export default {
+  components: {
+    TheFooter,
+  },
   props: {
     isMenuPage: Boolean,
   },

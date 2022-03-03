@@ -178,6 +178,9 @@ p {
 .header__btn-mobile {
   display: none;
 }
+.header .footer {
+  display: none;
+}
 .search {
   position: absolute;
   display: none;
@@ -1074,6 +1077,12 @@ p {
   line-height: 1;
   color: $dark-blue;
 }
+.card__title--mobile {
+  @extend %futurapt-bold;
+  line-height: 1;
+  color: $dark-blue;
+  display: none;
+}
 .card__tag {
   margin-left: 42px;
   margin-right: 8px;
@@ -1254,6 +1263,7 @@ p {
   height: 20px;
   background-color: transparent;
   background-image: url('../assets/icons/close.svg');
+  background-repeat: no-repeat;
   border: none;
   cursor: pointer;
 }
@@ -1327,8 +1337,11 @@ p {
   right: 20px;
   top: calc(50% - 10px);
   position: absolute;
-  background-image: url('@/assets/icons/calendar.svg');
+  // background-image: url('@/assets/icons/calendar.svg');
   background-size: contain;
+  background-color: #FF7A50;
+  -webkit-mask-image: url('@/assets/icons/calendar.svg');
+  mask-image: url('@/assets/icons/calendar.svg');
 }
 .date__calendar input {
   color: #9e9a9a;
@@ -1338,7 +1351,15 @@ p {
   font-size: 18px;
   line-height: 1;
   padding: 11px 19px;
+  border-radius: 0;
   border: 1px solid $light-blue;
+}
+.date__calendar--fill input {
+  background-color: $dark-blue;
+  color: #fff;
+}
+.date__calendar--fill::after {
+  background-color: #fff;
 }
 .date__intervals,
 .pay__methods {

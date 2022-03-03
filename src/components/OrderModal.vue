@@ -44,13 +44,6 @@
               required
               @onInput="onTypingSearch"
             />
-            <!-- <input
-              v-model="form.address"
-              type="text"
-              class="address__input address__street input"
-              placeholder="Улица, номер дома"
-              required
-            /> -->
             <input
               v-model="form.entrance"
               type="text"
@@ -91,11 +84,12 @@
         <div class="order__date date">
           <div class="date__title">Дата и интервал доставки</div>
           <div class="date__form">
-            <div class="date__calendar">
+            <div :class="['date__calendar', { 'date__calendar--fill': form.day }]">
               <datepicker
                 v-model="form.day"
                 :locale="locale"
                 :lowerLimit="new Date()"
+                placeholder="Дата доставки"
               />
             </div>
             <div class="date__intervals">
@@ -227,7 +221,7 @@ export default {
     const store = pinia();
 
     const deliverySum = ref(0);
-    const form = ref({ day: new Date() });
+    const form = ref({});
     const success = ref(false);
     const addressItems = ref([]);
 
